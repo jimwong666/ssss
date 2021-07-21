@@ -19,3 +19,5 @@ Build site app,
 ```bash
 $ npm run build
 ```
+
+> TODO: eslint and prettier tests and build demo

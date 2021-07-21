@@ -1,0 +1,29 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "jim <798165604@qq.com>",
+  "homepage": "https://github.com/jimwong666/ssss#readme",
+  "license": "ISC",
+  "main": "lib/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimwong666/ssss.git"
+  },
+  "scripts": {
+
+  },
+  "bugs": {
+    "url": "https://github.com/jimwong666/ssss/issues"
+  },
+  "dependencies": {
+    "qiankun": "^2.4.3"
+  }
+}

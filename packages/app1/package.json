@@ -1,0 +1,49 @@
+{
+ "name": "app1",
+ "version": "0.1.0",
+ "private": true,
+ "description": "> TODO: description",
+ "author": "jim <798165604@qq.com>",
+ "homepage": "https://github.com/jimwong666/ssss#readme",
+ "license": "ISC",
+ "directories": {
+  "lib": "lib"
+ },
+ "files": [
+  "lib"
+ ],
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/jimwong666/ssss.git"
+ },
+ "scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+ },
+ "bugs": {
+  "url": "https://github.com/jimwong666/ssss/issues"
+ },
+ "browserslist": {
+  "production": [
+   ">0.2%",
+   "not dead",
+   "not op_mini all"
+  ],
+  "development": [
+   "last 1 chrome version",
+   "last 1 firefox version",
+   "last 1 safari version"
+  ]
+ },
+ "dependencies": {
+  "@testing-library/jest-dom": "^5.14.1",
+  "@testing-library/react": "^11.2.7",
+  "@testing-library/user-event": "^12.8.3",
+  "react": "^17.0.2",
+  "react-dom": "^17.0.2",
+  "react-scripts": "4.0.3",
+  "web-vitals": "^1.1.2"
+ }
+}

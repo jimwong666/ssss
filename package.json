@@ -4,8 +4,8 @@
   "scripts": {
     "start": "dumi dev",
     "build": "dumi build",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "lint": "eslint \"**/*.{js,jsx,tsx,ts,less,md,json}\""
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,less,md,json}\"",
+    "eslint": "eslint \"**/*.{js,jsx,tsx,less,md,json}\""
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -22,11 +22,15 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "dumi": "^1.0.13",
     "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-json": "^3.0.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-markdown": "^2.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
