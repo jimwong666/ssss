@@ -17,9 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/jimwong666/ssss.git"
   },
-  "scripts": {
-
-  },
+  "scripts": {},
   "bugs": {
     "url": "https://github.com/jimwong666/ssss/issues"
   },
