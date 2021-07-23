@@ -7,10 +7,9 @@ const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
-
 const port = appConfig.dev_clientPort || 3000;
 const publicPath = '/';
-const dev_apiPath = appConfig.dev_apiPath || `http://localhost:${port}/`;
+const devApiPath = appConfig.dev_apiPath || `http://localhost:${port}/`;
 
 module.exports = merge(webpackBaseConfig, {
 	output: {
@@ -116,7 +115,7 @@ module.exports = merge(webpackBaseConfig, {
 		new ReactRefreshPlugin(),
 		new webpack.DefinePlugin({
 			// 所有ajax请求的基础url
-			BASE_URL: JSON.stringify(`${dev_apiPath}`),
+			BASE_URL: JSON.stringify(`${devApiPath}`),
 		}),
 	].concat(
 		Object.keys(entryObj).map((chunkName) => {

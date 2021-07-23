@@ -1,3 +1,6 @@
-module.exports = ({ file, options, env }) => ({
-	plugins: [require('autoprefixer'), require('postcss-preset-env')],
+const autoprefixer = require('autoprefixer');
+const postcssPresetEnv = require('postcss-preset-env');
+
+module.exports = () => ({
+	plugins: [autoprefixer, postcssPresetEnv],
 });

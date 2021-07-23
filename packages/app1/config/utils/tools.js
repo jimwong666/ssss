@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const appConfig = require('../../../../config').getConfig();
+const config = require('../../../../config');
 /*
  * client 目录解析
  *
@@ -49,6 +49,6 @@ function getEntry(entryDir) {
 
 module.exports = {
 	clientPathResolve,
-	appConfig,
+	appConfig: config.getConfig(),
 	getEntry,
 };

@@ -7,7 +7,7 @@ import Cards from '@components/widgets/cards';
 import classNames from 'classnames/bind';
 // import { xml } from 'cheerio';
 import styles from '../styles/index.scss';
-import { fetchTest } from '../actions';
+import { fetchTestAction } from '../actions';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	...bindActionCreators(
 		{
-			fetchTest,
+			fetchTest: fetchTestAction,
 		},
 		dispatch,
 	),
