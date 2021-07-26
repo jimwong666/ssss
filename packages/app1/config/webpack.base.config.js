@@ -11,10 +11,10 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader', // 主要用于编译es6语法和react的jsx语法
-					query: {
+					options: {
 						cacheDirectory: true, // 开启缓存，提升速度
+						configFile: clientPathResolve('../../babel.config.js'), // configFile 配置为 false, 可以禁用项目范围的配置文件
 					},
-					// options请看.babelrc文件
 				},
 			},
 		],

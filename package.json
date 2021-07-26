@@ -41,6 +41,7 @@
     "lint-staged": "^10.0.7",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
+    "yamljs": "^0.3.0",
     "yorkie": "^2.0.0"
   }
 }

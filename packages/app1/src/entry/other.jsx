@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//  eslint-disable-line
 import RootRouter from '@router';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
@@ -8,18 +7,20 @@ import { Provider } from 'react-redux';
 import simpleAsync from '@utils/reduxSimpleAsync';
 import rootReducer from '../rootReducer';
 
+/* eslint-disable */
 const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 	rootReducer,
-	// eslint-disable-next-line no-underscore-dangle
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
-// console.log(store);
+/* eslint-enable */
+
 const render = (App) => {
 	ReactDOM.render(
 		<Provider store={store}>
+			我是other页面！
 			<App />
 		</Provider>,
-		document.getElementById('root2'),
+		document.getElementById('root'),
 	);
 };
 

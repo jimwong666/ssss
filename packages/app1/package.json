@@ -17,8 +17,8 @@
 		"url": "git+https://github.com/jimwong666/ssss.git"
 	},
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development webpack-dev-server --config ./client/config/webpack.config.js --mode=development",
-		"build": "cross-env NODE_ENV=production webpack --config ./client/config/webpack.config.js --mode=production"
+		"dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.config.js --mode=development",
+		"build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js --mode=production"
 	},
 	"bugs": {
 		"url": "https://github.com/jimwong666/ssss/issues"

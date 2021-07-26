@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+const { rewrites, openPage } = require('./utils/devMultiPageTools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 const port = appConfig.dev_clientPort || 3000;
@@ -13,7 +14,8 @@ const devApiPath = appConfig.dev_apiPath || `http://localhost:${port}/`;
 
 module.exports = merge(webpackBaseConfig, {
 	output: {
-		filename: '[name].js',
+		filename: 'js/[name].js',
+		chunkFilename: 'js/[name].js',
 		publicPath,
 	},
 	devtool: 'cheap-module-eval-source-map',
@@ -24,23 +26,31 @@ module.exports = merge(webpackBaseConfig, {
 		host: '0.0.0.0',
 		hot: true,
 		open: true,
-		openPage: `http://localhost:${port}/`,
+		openPage,
 		historyApiFallback: {
 			// 单页应用刷新页面重定向到对应的单页目录下，以便支持多个单页和多页共存
-			rewrites: Object.keys(entryObj).map((chunkName) => {
-				[chunkName] = chunkName.split('/');
-				return {
-					from: new RegExp(`^/${chunkName}/`, 'g'),
-					to: `/${chunkName}/`,
-				};
-			}),
+			// rewrites: function() {
+			// 	let a = Object.keys(entryObj).map((chunkName) => {
+			// 		[chunkName] = chunkName.split('/');
+			// 		return {
+			// 			// from: new RegExp(`^/${chunkName}/`, 'g'),
+			// 			// to: `/${chunkName}/`,
+			// 			from: new RegExp(`/${chunkName}/`),
+			// 			to: '/'+chunkName+'.html',
+			// 		};
+			// 	})
+			// 	console.log('a', a);
+			// 	return a;
+			// },
 			// rewrites: [
-			//     {
-			//         from:  /^\/spa2\//g,
-			//         to: '/spa2/'
-			//     }
-			// ]
+			// 	{
+			// 		from: /^\/other/,
+			// 		to: '/other.html'
+			// 	}
+			// ],
+			rewrites,
 		},
+		contentBase: '/',
 		publicPath: '/',
 	},
 	module: {
@@ -121,7 +131,7 @@ module.exports = merge(webpackBaseConfig, {
 		Object.keys(entryObj).map((chunkName) => {
 			// 多页面兼容
 			return new HtmlWebpackPlugin({
-				title: 'paludina的博客',
+				title: `${chunkName}-博客`,
 				filename: `${chunkName}.html`,
 				chunks: [chunkName],
 				template: clientPathResolve('public/index.html'),

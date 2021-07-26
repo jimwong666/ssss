@@ -7,15 +7,17 @@ import { Provider } from 'react-redux';
 import simpleAsync from '@utils/reduxSimpleAsync';
 import rootReducer from '../rootReducer';
 
+/* eslint-disable */
 const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 	rootReducer,
-	// eslint-disable-next-line
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
-// console.log(store);
+/* eslint-enable */
+
 const render = (App) => {
 	ReactDOM.render(
 		<Provider store={store}>
+			我是index页面！
 			<App />
 		</Provider>,
 		document.getElementById('root'),
