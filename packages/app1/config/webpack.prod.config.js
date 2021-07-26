@@ -111,7 +111,7 @@ module.exports = merge(webpackBaseConfig, {
 				filename: `${chunkName}.html`,
 				chunks: [chunkName],
 				template: clientPathResolve('public/index.html'),
-				// favicon: clientPathResolve('public/favicon.ico')
+				// favicon: clientPathResolve('public/favicon.ico') // node处理过了
 			});
 		}),
 	),

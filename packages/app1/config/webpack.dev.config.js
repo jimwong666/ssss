@@ -28,26 +28,6 @@ module.exports = merge(webpackBaseConfig, {
 		open: true,
 		openPage,
 		historyApiFallback: {
-			// 单页应用刷新页面重定向到对应的单页目录下，以便支持多个单页和多页共存
-			// rewrites: function() {
-			// 	let a = Object.keys(entryObj).map((chunkName) => {
-			// 		[chunkName] = chunkName.split('/');
-			// 		return {
-			// 			// from: new RegExp(`^/${chunkName}/`, 'g'),
-			// 			// to: `/${chunkName}/`,
-			// 			from: new RegExp(`/${chunkName}/`),
-			// 			to: '/'+chunkName+'.html',
-			// 		};
-			// 	})
-			// 	console.log('a', a);
-			// 	return a;
-			// },
-			// rewrites: [
-			// 	{
-			// 		from: /^\/other/,
-			// 		to: '/other.html'
-			// 	}
-			// ],
 			rewrites,
 		},
 		contentBase: '/',
