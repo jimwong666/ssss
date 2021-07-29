@@ -29,9 +29,9 @@ module.exports = {
 			next();
 		} else {
 			next({
-				retCode: 401,
-				stack: 'unauthorized',
-				message: '未授权！',
+				retCode: 403,
+				stack: 'Forbidden',
+				message: '禁止访问！',
 			});
 		}
 	},

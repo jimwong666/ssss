@@ -4,8 +4,7 @@
 		"packages/*",
 		"packages/main/*",
 		"packages/app1/*",
-		"packages/app2/*",
-		"packages/bff/*"
+		"packages/app2/*"
 	],
 	"version": "independent"
 }
