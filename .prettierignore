@@ -1,8 +1,12 @@
-**/dist/**/*
 **/*.svg
 **/*.ejs
 **/*.html
-/dist
 package.json
 .umi
 .umi-production
+
+**/*.min.js
+**/node_modules/**/*
+**/dist/**/*
+**/log/**/*
+**/public/style/**/*

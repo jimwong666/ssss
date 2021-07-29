@@ -6,19 +6,16 @@
 	"author": "jim <798165604@qq.com>",
 	"homepage": "https://github.com/jimwong666/ssss#readme",
 	"license": "ISC",
-	"directories": {
-		"lib": "lib"
-	},
-	"files": [
-		"lib"
-	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/jimwong666/ssss.git"
 	},
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.config.js --mode=development",
-		"build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js --mode=production"
+		"fe:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./client/config/webpack.config.js --mode=development",
+		"fe:build": "cross-env NODE_ENV=production webpack --config ./client/config/webpack.config.js --mode=production",
+		"be:dev": "cross-env NODE_ENV=development node ./bin/www",
+		"be:prod": "cross-env NODE_ENV=production node ./bin/www",
+		"pm2": "pm2 start ./ecosystem.config.js && pm2 monit"
 	},
 	"bugs": {
 		"url": "https://github.com/jimwong666/ssss/issues"
@@ -90,6 +87,7 @@
 		"ejs": "^3.1.6",
 		"events": "^3.3.0",
 		"express": "^4.17.1",
+		"express-async-errors": "^3.1.1",
 		"fr-generator": "^1.0.1",
 		"immutable": "^4.0.0-rc.12",
 		"log4js": "^6.3.0",

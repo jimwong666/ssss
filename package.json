@@ -2,11 +2,15 @@
   "private": true,
   "name": "ssss",
   "scripts": {
-    "start": "dumi dev",
-    "build": "dumi build",
-    "app1_start": "lerna run start --scope=app1",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,less,md,json}\"",
-    "eslint": "eslint --fix \"**/*.{js,jsx,tsx,less,md,json}\""
+    "dumi:dev": "dumi dev",
+    "dumi:build": "dumi build",
+		"fe:dev": "lerna run fe:dev",
+		"fe:build": "lerna run fe:build",
+		"be:dev": "lerna run be:dev",
+		"be:prod": "lerna run be:prod",
+    "app1_start": "lerna run dev --scope=app1",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
+    "eslint": "eslint --fix \"**/*.{js,jsx,tsx,css,sass,less,md,json}\""
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -39,7 +43,6 @@
     "eslint-plugin-react-redux": "^3.3.2",
     "lerna": "^4.0.0",
     "lint-staged": "^10.0.7",
-    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "yamljs": "^0.3.0",
     "yorkie": "^2.0.0"
