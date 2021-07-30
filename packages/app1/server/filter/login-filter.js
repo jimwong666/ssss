@@ -15,6 +15,7 @@ module.exports = {
 		if (req.locals.app.skipLoginFilter) {
 			// 跳过本次中间件
 			next();
+			return;
 		}
 
 		const matchWhitelist = tools.MatchSome(req.url, Constants.LOGIN_WHITE_LIST);

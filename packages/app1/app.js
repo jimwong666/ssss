@@ -48,30 +48,9 @@ app.use(
 );
 
 // filter
-app.use(function (req, res, next) {
-	try {
-		globalFilter.filter(req, res, next);
-	} catch (err) {
-		next(err);
-	}
-});
-app.use(function (req, res, next) {
-	try {
-		loginFilter.filter(req, res, next);
-	} catch (err) {
-		next(err);
-	}
-});
-app.use(function (req, res, next) {
-	try {
-		csrfFilter.filter(req, res, next);
-	} catch (err) {
-		next(err);
-	}
-});
-// app.use((req, res, next) => globalFilter.filter(req, res, next));
-// app.use((req, res, next) => loginFilter.filter(req, res, next));
-// app.use((req, res, next) => csrfFilter.filter(req, res, next));
+app.use((req, res, next) => globalFilter.filter(req, res, next));
+app.use((req, res, next) => loginFilter.filter(req, res, next));
+app.use((req, res, next) => csrfFilter.filter(req, res, next));
 
 // router
 routerRigister.route(app);
