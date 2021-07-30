@@ -167,20 +167,20 @@ function execute(method, uri, params, callback) {
 	}
 }
 module.exports = {
-	get(arg) {
-		const args = parseArguments.apply(this, ...arg);
+	get(...arg) {
+		const args = parseArguments.apply(this, arg);
 		execute('get', args.uri, args.params, args.callback);
 	},
-	post(arg) {
-		const args = parseArguments.apply(this, ...arg);
+	post(...arg) {
+		const args = parseArguments.apply(this, arg);
 		execute('post', args.uri, args.params, args.callback);
 	},
-	put(arg) {
-		const args = parseArguments.apply(this, ...arg);
+	put(...arg) {
+		const args = parseArguments.apply(this, arg);
 		execute('put', args.uri, args.params, args.callback);
 	},
-	delete(arg) {
-		const args = parseArguments.apply(this, ...arg);
+	delete(...arg) {
+		const args = parseArguments.apply(this, arg);
 		execute('delete', args.uri, args.params, args.callback);
 	},
 	download(uri, params, req, res) {

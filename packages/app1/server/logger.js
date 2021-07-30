@@ -4,6 +4,7 @@
  */
 const log4js = require('log4js');
 const conf = require('./utils/tools').appConfig;
+
 const distPath = conf.logDist || 'log';
 const isDevMode = process.env.NODE_ENV === 'development';
 

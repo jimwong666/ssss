@@ -1,7 +1,7 @@
 const logger = require('./logger');
 
 module.exports = {
-	notFound: function (req, res, next) {
+	notFound(req, res, next) {
 		const errData = {
 			retCode: 404,
 			stack: 'not found',

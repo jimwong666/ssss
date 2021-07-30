@@ -7,7 +7,7 @@ import * as constant from './actionsTypes';
 const preData = (
 	state = fromJS({
 		isFetching: false,
-		data: '初始化',
+		data: [],
 	}),
 	action,
 ) => {

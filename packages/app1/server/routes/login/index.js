@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const backend = require('../../backend');
 const Session = require('../../session');
@@ -29,8 +30,8 @@ router.post('/', function (req, res) {
 			Session.logon(req, res, data);
 			res.redirect('/');
 		} else {
-			res.loginInfo.error = data.error;
-			res.loginInfo.userName = req.body.userName;
+			res.locals.loginErrInfo.error = data.error;
+			res.locals.loginErrInfo.userName = req.body.userName;
 			res.render('login');
 		}
 	});

@@ -33,20 +33,17 @@ export default class Work extends React.Component {
 	render() {
 		// const { preData, preData2 } = this.props;
 		const { preData } = this.props;
-		console.log(preData.toJS());
-		console.log('---------------------');
 		// console.log(preData2.toJS());
 		return (
 			<ul>
-				{preData.get('data') &&
-					preData.getIn(['data', 'data'])?.map((item) => {
-						return (
-							<li key={item.get('id')}>
-								<span>{item.get('name')}</span>
-								<img src={item.get('imgUrl')} alt="img" />
-							</li>
-						);
-					})}
+				{preData.get('data')?.map((item) => {
+					return (
+						<li key={item.get('id')}>
+							<span>{item.get('name')}</span>
+							<img src={item.get('imgUrl')} alt="img" />
+						</li>
+					);
+				})}
 			</ul>
 		);
 	}

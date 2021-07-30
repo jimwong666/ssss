@@ -22,7 +22,7 @@ const fetchPreDataFailure = (error) => ({
 export const asyncFetchPreDataAction = (callback) => (dispatch) => {
 	dispatch(fetchPreDataRequest());
 	axios
-		.get(`${BASE_URL}/api/imgList`)
+		.get(`${BASE_URL}/imgList`)
 		.then(function (res) {
 			if (res.data) {
 				dispatch(fetchPreDataSuccess(fromJS(res.data)));

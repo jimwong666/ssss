@@ -14,19 +14,20 @@ logDist: "d:\\log/app1"
 socketTimeout: 60000
 # 文件处理超时时间
 fileSocketTimeout: 180000
-# cdn 地址
-cdn: ""
 # 加密编码
 encoding: "base64"
 # 后端地址
 backendUrl: "https://10.110.1.185:8050"
 # dev
-dev_backendUrl: "https://10.110.1.185:8050"
+dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 
 # client config
 # dev
 dev_clientPort: 3333
-dev_apiPath: "https://focusapi.vemic.com/mock/144"
+dev_apiPath: "https://focusapi.vemic.com/mock/209"
 # prod
 assetsPath: "/dist/"
-distApiPath: "https://paludina.com"
+distApiPath: "https://focusapi.vemic.com/mock/209"
+
+# cdn 地址
+cdn: ""

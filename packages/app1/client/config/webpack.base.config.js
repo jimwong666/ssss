@@ -13,7 +13,6 @@ module.exports = {
 					loader: 'babel-loader', // 主要用于编译es6语法和react的jsx语法
 					options: {
 						cacheDirectory: true, // 开启缓存，提升速度
-						configFile: clientPathResolve('../../../babel.config.js'), // configFile 配置为 false, 可以禁用项目范围的配置文件
 					},
 				},
 			},
