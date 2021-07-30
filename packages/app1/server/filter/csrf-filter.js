@@ -21,7 +21,7 @@ module.exports = {
 
 		if (
 			matchWhitelist &&
-			req.method === 'GET' &&
+			req.method === 'POST' &&
 			xToken &&
 			decodeURIComponent(xToken) === session.xToken
 		) {
