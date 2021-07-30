@@ -26,13 +26,11 @@ router.post('/', function (req, res) {
 
 		// TODO: 处理好登陆链接的 from 参数
 		if (data && data.retCode === 0) {
-			console.log(Session.get);
 			Session.logon(req, res, data);
 			res.redirect('/');
 		} else {
-			res.locals.error = data.error;
-			res.locals.userName = req.body.userName;
-			res.locals.password = req.body.password;
+			res.loginInfo.error = data.error;
+			res.loginInfo.userName = req.body.userName;
 			res.render('login');
 		}
 	});
