@@ -1,13 +1,13 @@
 
 # server config
-domainUrl: "app1.abizaeps.com"
+domainUrl: "abizaeps.com"
 appName: "AEPS-MicroFrontend"
 version: "1.0.0"
 clientType: "PC_WEB"
 title: "microFrontend-1"
-serverPort: 5001
+serverPort: 5000
 logLevel: "INFO"
-logDist: "d:\\log/app1"
+logDist: "d:\\log/main"
 # bff keep-alive超时时间
 # keepAliveTimeout: 60000
 # backend socket超时时间
@@ -23,7 +23,7 @@ dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 
 # client config
 # dev
-dev_clientPort: 4001
+dev_clientPort: 4000
 dev_apiPath: "https://focusapi.vemic.com/mock/209"
 # prod
 assetsPath: "/dist/"
