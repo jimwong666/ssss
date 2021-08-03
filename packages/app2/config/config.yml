@@ -1,7 +1,6 @@
 
 # server config
 domainUrl: "app2.abizaeps.com"
-appName: "AEPS-MicroFrontend"
 version: "1.0.0"
 clientType: "PC_WEB"
 title: "microFrontend-1"

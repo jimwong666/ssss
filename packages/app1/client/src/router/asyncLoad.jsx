@@ -2,7 +2,7 @@ import React from 'react';
 import Loadable from 'react-loadable';
 
 const Loading = () => {
-	return <div>加载中...</div>;
+	return <>加载中...</>;
 };
 
 const asyncLoad = (importComponent) => {

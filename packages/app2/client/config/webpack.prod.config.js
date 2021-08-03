@@ -9,6 +9,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+const packageName = require('../../package.json').name;
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 
@@ -21,6 +22,9 @@ module.exports = merge(webpackBaseConfig, {
 		chunkFilename: 'js/[name].[chunkhash:8].js',
 		path: clientPathResolve('../dist'),
 		publicPath,
+		library: `${packageName}-[name]`,
+		libraryTarget: 'umd',
+		jsonpFunction: `webpackJsonp_${packageName}`,
 	},
 	module: {
 		rules: [

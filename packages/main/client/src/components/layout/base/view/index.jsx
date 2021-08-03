@@ -30,7 +30,7 @@ export default class Main extends React.Component {
 
 	render() {
 		const { collapsed } = this.state;
-		const { active, breadcrumbs, text } = this.props;
+		const { active, breadcrumbs, contents } = this.props;
 
 		return (
 			<Layout style={{ minHeight: '100vh' }}>
@@ -57,6 +57,18 @@ export default class Main extends React.Component {
 						<Menu.Item key="6" icon={<EllipsisOutlined />}>
 							<Link to="/about">关于</Link>
 						</Menu.Item>
+						<Menu.Item key="7" icon={<ProfileOutlined />}>
+							<Link to="/app1">app1</Link>
+						</Menu.Item>
+						<Menu.Item key="8" icon={<EllipsisOutlined />}>
+							<Link to="/app1/messageBoard">app1-m</Link>
+						</Menu.Item>
+						<Menu.Item key="9" icon={<ProfileOutlined />}>
+							<Link to="/app2">app2</Link>
+						</Menu.Item>
+						<Menu.Item key="10" icon={<EllipsisOutlined />}>
+							<Link to="/app2/messageBoard">app2-m</Link>
+						</Menu.Item>
 					</Menu>
 				</Sider>
 				<Layout className={cx('site-layout')}>
@@ -71,9 +83,10 @@ export default class Main extends React.Component {
 						</Breadcrumb>
 						<div
 							className={cx('site-layout-background')}
+							id="micro_app"
 							style={{ padding: 24 }}
 						>
-							{text}
+							{contents}
 						</div>
 					</Content>
 					{/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}

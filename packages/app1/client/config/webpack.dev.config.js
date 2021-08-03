@@ -6,6 +6,7 @@ const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 const { rewrites, openPage } = require('./utils/devMultiPageTools');
+const packageName = require('../../package.json').name;
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 const port = appConfig.dev_clientPort || 3000;
@@ -17,6 +18,9 @@ module.exports = merge(webpackBaseConfig, {
 		filename: 'js/[name].js',
 		chunkFilename: 'js/[name].js',
 		publicPath,
+		library: `${packageName}-[name]`,
+		libraryTarget: 'umd',
+		jsonpFunction: `webpackJsonp_${packageName}`,
 	},
 	devtool: 'cheap-module-eval-source-map',
 	devServer: {
@@ -27,6 +31,9 @@ module.exports = merge(webpackBaseConfig, {
 		hot: true,
 		open: true,
 		openPage,
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+		},
 		historyApiFallback: {
 			rewrites,
 		},

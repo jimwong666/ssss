@@ -38,7 +38,7 @@ export default class Main extends React.Component {
 					<div className={cx('logo')} />
 					<Menu theme="dark" defaultSelectedKeys={[active]} mode="inline">
 						<Menu.Item key="1" icon={<HomeOutlined />}>
-							<Link to="/">首页</Link>
+							<Link to="/">首页app1</Link>
 						</Menu.Item>
 						<SubMenu key="sub1" icon={<ReadOutlined />} title="文章">
 							<Menu.Item key="2">

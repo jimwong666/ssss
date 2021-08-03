@@ -16,7 +16,7 @@ const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
 							<Main
 								breadcrumbs={route.breadcrumb}
 								active={route.active}
-								text={
+								contents={
 									<route.component {...props} {...extraProps} route={route} />
 								}
 							/>

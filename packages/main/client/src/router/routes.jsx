@@ -1,3 +1,4 @@
+import notFound from '@pages/404';
 import asyncLoad from './asyncLoad';
 
 const routes = [
@@ -42,7 +43,7 @@ const routes = [
 		path: '*',
 		active: '',
 		breadcrumb: [],
-		component: asyncLoad(() => import('@pages/404')),
+		component: notFound,
 	},
 ];
 

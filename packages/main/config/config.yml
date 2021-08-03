@@ -1,7 +1,6 @@
 
 # server config
 domainUrl: "abizaeps.com"
-appName: "AEPS-MicroFrontend"
 version: "1.0.0"
 clientType: "PC_WEB"
 title: "microFrontend-1"
@@ -28,6 +27,8 @@ dev_apiPath: "https://focusapi.vemic.com/mock/209"
 # prod
 assetsPath: "/dist/"
 distApiPath: "https://focusapi.vemic.com/mock/209"
+# 微应用
+microApp: ['app1', 'app2']
 
 # cdn 地址
 cdn: ""

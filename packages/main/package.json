@@ -95,6 +95,7 @@
 		"nanoid": "^2.1.11",
 		"pope": "^2.0.2",
 		"prop-types": "^15.x",
+		"qiankun": "^2.4.5",
 		"rc-color-picker": "^1.2.6",
 		"react": "^16.13.1",
 		"react-dnd": "^11.1.3",
