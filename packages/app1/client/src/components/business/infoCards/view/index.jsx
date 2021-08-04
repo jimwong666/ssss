@@ -8,7 +8,7 @@ import {
 import classNames from 'classnames/bind';
 import styles from '../styles/index.scss';
 
-const cx = classNames.bind(styles);
+// const cx = classNames.bind(styles);
 
 const { Meta } = Card;
 
@@ -94,9 +94,9 @@ export default class InfoCards extends React.Component {
 		console.log('这里是render！');
 
 		return (
-			<div className={cx('info-cards-group')}>
+			<div className={styles['info-cards-group']}>
 				<Card
-					className={cx('info-cards-main')}
+					className={styles['info-cards-main']}
 					cover={
 						<Image
 							width={300}
@@ -112,17 +112,20 @@ export default class InfoCards extends React.Component {
 						<a href="https://www.baidu.com" key={1}>
 							<Popover placement="top" content={<div>github</div>}>
 								<GithubOutlined
-									className={cx('info-cards-icon')}
+									className={styles['info-cards-icon']}
 									key="github"
 								/>
 							</Popover>
 						</a>,
 						<Popover key={2} placement="top" content={<div>wechat</div>}>
-							<WechatOutlined className={cx('info-cards-icon')} key="wechat" />
+							<WechatOutlined
+								className={styles['info-cards-icon']}
+								key="wechat"
+							/>
 						</Popover>,
 						<Popover key={3} placement="top" content={<div>money</div>}>
 							<MoneyCollectOutlined
-								className={cx('info-cards-icon')}
+								className={styles['info-cards-icon']}
 								key="money"
 							/>
 						</Popover>,
@@ -138,37 +141,37 @@ export default class InfoCards extends React.Component {
 					/>
 				</Card>
 
-				<Card className={cx('info-cards-tag-group')}>
-					<Tag className={cx('info-cards-tag')} color="red">
+				<Card className={styles['info-cards-tag-group']}>
+					<Tag className={styles['info-cards-tag']} color="red">
 						HTML
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="yellow">
+					<Tag className={styles['info-cards-tag']} color="yellow">
 						CSS
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="blue">
+					<Tag className={styles['info-cards-tag']} color="blue">
 						Javascript
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="#0769ad">
+					<Tag className={styles['info-cards-tag']} color="#0769ad">
 						Jquery
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="#61dafb">
+					<Tag className={styles['info-cards-tag']} color="#61dafb">
 						React
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="#41b883">
+					<Tag className={styles['info-cards-tag']} color="#41b883">
 						Vue
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="#333">
+					<Tag className={styles['info-cards-tag']} color="#333">
 						Node.js
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="#e1234e">
+					<Tag className={styles['info-cards-tag']} color="#e1234e">
 						NestJS
 					</Tag>
-					<Tag className={cx('info-cards-tag')} color="#75afcc">
+					<Tag className={styles['info-cards-tag']} color="#75afcc">
 						Webpack
 					</Tag>
 				</Card>
 
-				<Card className={cx('info-cards-other')}>
+				<Card className={styles['info-cards-other']}>
 					<p>2021年4月28日</p>
 					江苏南京，晴，25℃-30℃
 				</Card>

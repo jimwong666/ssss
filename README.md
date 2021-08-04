@@ -1,23 +1,7 @@
-# dumi app
+# micro app
 
-## Getting Started
+based on react, qiankun, lerna, dumi and more
 
-Install dependencies,
-
-```bash
-$ npm i
-```
-
-Start the dev server,
-
-```bash
-$ npm start
-```
-
-Build site app,
-
-```bash
-$ npm run build
-```
-
-> TODO: eslint and prettier tests and build demo
+TODO: immutable => immutibility-helper
+TODO: home page style fix
+TODO: add a launcher based on electron
