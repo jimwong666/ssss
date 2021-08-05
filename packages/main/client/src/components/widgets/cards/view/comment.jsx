@@ -24,18 +24,6 @@ export default function CommentCards(props) {
 				}
 				type="inner"
 			>
-				{/* <span className={cx("home-item-icon")}>
-						<EditOutlined />：
-					</span>
-					<div className={cx("home-item-content")}>
-						<span className={cx("home-item-title")}>
-							<p>{this.props.text}</p>
-						</span>
-						<span className={cx("home-item-time")}>
-							{this.props.operating} {this.props.time}
-						</span>
-					</div> */}
-
 				<Meta
 					avatar={
 						<Avatar

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import simpleAsync from '@utils/reduxSimpleAsync';
 import rootReducer from '../rootReducer';
 
-const { __REDUX_DEVTOOLS_EXTENSION__ } = window;
+const { __REDUX_DEVTOOLS_EXTENSION__, __POWERED_BY_QIANKUN__ } = window;
 const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 	rootReducer,
 	__REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__(),
@@ -16,12 +16,14 @@ const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 const render = (App, el) => {
 	ReactDOM.render(
 		<Provider store={store}>
-			我是app2页面！
 			<App />
 		</Provider>,
 		el,
 	);
 };
+
+if (!__POWERED_BY_QIANKUN__)
+	render(RootRouter, document.getElementById('root2'));
 
 /**
  * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。

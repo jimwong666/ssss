@@ -23,7 +23,6 @@ const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 const render = (App) => {
 	ReactDOM.render(
 		<Provider store={store}>
-			我是main页面！
 			<App />
 		</Provider>,
 		document.getElementById('root'),

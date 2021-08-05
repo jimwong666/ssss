@@ -6,7 +6,6 @@ const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 const { rewrites, openPage } = require('./utils/devMultiPageTools');
-const packageName = require('../../package.json').name;
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 const port = appConfig.dev_clientPort || 3000;
@@ -18,9 +17,9 @@ module.exports = merge(webpackBaseConfig, {
 		filename: 'js/[name].js',
 		chunkFilename: 'js/[name].js',
 		publicPath,
-		library: `${packageName}-[name]`,
+		library: `${appConfig.appName}-[name]`,
 		libraryTarget: 'umd',
-		jsonpFunction: `webpackJsonp_${packageName}`,
+		jsonpFunction: `webpackJsonp_${appConfig.appName}`,
 	},
 	devtool: 'cheap-module-eval-source-map',
 	devServer: {
@@ -53,11 +52,11 @@ module.exports = merge(webpackBaseConfig, {
 					{
 						loader: 'css-loader',
 						options: {
+							modules: {
+								localIdentName: `${appConfig.appName}__[local]--[hash:base64:5]`,
+							},
 							importLoaders: 2, // 使用import之前还要经过几次loader
 							sourceMap: true,
-							// modules: {
-							//     localIdentName: '[local]--[hash:base64:5]'
-							// }
 						},
 					},
 					{

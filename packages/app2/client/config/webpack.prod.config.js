@@ -9,7 +9,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
-const packageName = require('../../package.json').name;
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 
@@ -22,9 +21,9 @@ module.exports = merge(webpackBaseConfig, {
 		chunkFilename: 'js/[name].[chunkhash:8].js',
 		path: clientPathResolve('../dist'),
 		publicPath,
-		library: `${packageName}-[name]`,
+		library: `${appConfig.appName}-[name]`,
 		libraryTarget: 'umd',
-		jsonpFunction: `webpackJsonp_${packageName}`,
+		jsonpFunction: `webpackJsonp_${appConfig.appName}`,
 	},
 	module: {
 		rules: [
@@ -44,7 +43,7 @@ module.exports = merge(webpackBaseConfig, {
 						options: {
 							importLoaders: 2, // 使用import之前还要经过几次loader
 							modules: {
-								localIdentName: '[local]--[hash:base64:5]',
+								localIdentName: `${appConfig.appName}__[local]--[hash:base64:5]`,
 							},
 						},
 					},

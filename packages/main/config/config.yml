@@ -1,5 +1,6 @@
 
 # server config
+appName: "main"
 domainUrl: "abizaeps.com"
 version: "1.0.0"
 clientType: "PC_WEB"

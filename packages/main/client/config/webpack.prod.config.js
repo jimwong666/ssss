@@ -40,7 +40,7 @@ module.exports = merge(webpackBaseConfig, {
 						options: {
 							importLoaders: 2, // 使用import之前还要经过几次loader
 							modules: {
-								localIdentName: '[local]--[hash:base64:5]',
+								localIdentName: `${appConfig.appName}__[local]--[hash:base64:5]`,
 							},
 						},
 					},

@@ -72,7 +72,6 @@ export default class Main extends React.Component {
 					</Menu>
 				</Sider>
 				<Layout className={cx('site-layout')}>
-					{/* <Header className={cx("site-layout-background")} style={{ padding: 0 }} /> */}
 					<Content className={cx('mian-content')} style={{ margin: '0 16px' }}>
 						<Breadcrumb style={{ margin: '16px 0' }}>
 							{breadcrumbs.map((item, index) => (
@@ -86,10 +85,10 @@ export default class Main extends React.Component {
 							id="micro_app"
 							style={{ padding: 24 }}
 						>
+							<div>这里是main</div>
 							{contents}
 						</div>
 					</Content>
-					{/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
 				</Layout>
 			</Layout>
 		);
