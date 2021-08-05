@@ -1,4 +1,5 @@
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+const webpack = require('webpack');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 module.exports = {
@@ -36,7 +37,12 @@ module.exports = {
 			'@images': clientPathResolve('src/images'),
 			'@utils': clientPathResolve('src/utils'),
 			'@router': clientPathResolve('src/router'),
-			'@@appName': appConfig.appName,
 		},
 	},
+	plugins: [
+		new webpack.DefinePlugin({
+			// app name
+			APP_NAME: appConfig.appName,
+		}),
+	],
 };
