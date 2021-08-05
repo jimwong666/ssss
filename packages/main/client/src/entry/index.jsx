@@ -4,6 +4,7 @@ import {
 	setDefaultMountApp,
 	start,
 	initGlobalState,
+	addGlobalUncaughtErrorHandler,
 } from 'qiankun';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -32,11 +33,11 @@ const render = (App) => {
 render(RootRouter);
 
 // 热模块替换
-if (process.env.NODE_ENV !== 'production' && module.hot) {
-	module.hot.accept('../router/index', () => {
-		render(RootRouter);
-	});
-}
+// if (process.env.NODE_ENV !== 'production' && module.hot) {
+// 	module.hot.accept('../router/index', () => {
+// 		render(RootRouter);
+// 	});
+// }
 
 /*
  * qiankun
@@ -73,46 +74,41 @@ registerMicroApps(
 	{
 		beforeLoad: [
 			(app) => {
-				console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
+				console.log('[LifeCycle] beforeLoad 生命周期', app.name);
 			},
 		],
 		beforeMount: [
 			(app) => {
-				console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
+				console.log('[LifeCycle] beforeMount 生命周期', app.name);
 			},
 		],
 		afterMount: [
 			(app) => {
-				console.log('[LifeCycle] after mount %c%s', 'color: green;', app.name);
+				console.log('[LifeCycle] afterMount 生命周期', app.name);
 			},
 		],
 		beforeUnmount: [
 			(app) => {
-				console.log(
-					'[LifeCycle] before unmount %c%s',
-					'color: green;',
-					app.name,
-				);
+				console.log('[LifeCycle] beforeUnmount 生命周期', app.name);
 			},
 		],
 		afterUnmount: [
 			(app) => {
-				console.log(
-					'[LifeCycle] after unmount %c%s',
-					'color: green;',
-					app.name,
-				);
+				console.log('[LifeCycle] afterUnmount 生命周期', app.name);
 			},
 		],
 	},
 );
 
+/**
+ * 全局变量
+ */
 const { onGlobalStateChange, setGlobalState } = initGlobalState({
 	user: 'qiankun',
 });
 
 onGlobalStateChange((value, prev) =>
-	console.log('[onGlobalStateChange - master]:', value, prev),
+	console.log('全局变量变动触发', value, prev),
 );
 
 setGlobalState({
@@ -123,12 +119,16 @@ setGlobalState({
 });
 
 /**
- * Step3 设置默认进入的子应用
+ * 添加全局的未捕获异常处理
  */
-// setDefaultMountApp('/app1');
+const handler = function (e) {
+	console.log('未捕获的异常：');
+	console.log(e);
+};
+addGlobalUncaughtErrorHandler(handler);
 
 /**
- * Step4 启动应用
+ * 启动应用
  */
 start({
 	prefetch: 'all',

@@ -28,8 +28,8 @@ module.exports = merge(webpackBaseConfig, {
 		disableHostCheck: true,
 		host: '0.0.0.0',
 		hot: true,
-		open: true,
-		openPage,
+		// open: true,
+		// openPage,
 		headers: {
 			'Access-Control-Allow-Origin': '*',
 		},

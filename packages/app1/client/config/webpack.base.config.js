@@ -1,4 +1,4 @@
-const { clientPathResolve, getEntry } = require('./utils/tools');
+const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 module.exports = {
@@ -36,6 +36,7 @@ module.exports = {
 			'@images': clientPathResolve('src/images'),
 			'@utils': clientPathResolve('src/utils'),
 			'@router': clientPathResolve('src/router'),
+			'@@appName': appConfig.appName,
 		},
 	},
 };
