@@ -9,8 +9,8 @@ module.exports = {
 			cwd: './',
 			exec_mode: 'cluster',
 			instances: numCPUs >= 2 ? numCPUs : 2,
-			error_file: config.logDist + '/log/pm2/app-err.log',
-			out_file: config.logDist + '/log/pm2/app-out.log',
+			error_file: `${config.logDist}/log/pm2/app-err.log`,
+			out_file: `${config.logDist}/log/pm2/app-out.log`,
 			env: {
 				NODE_ENV: 'production',
 				MICRO_CACHE: true,

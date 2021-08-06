@@ -11,21 +11,21 @@ const { Meta } = Card;
 export default class InfoCards extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('这里是constructor！');
+		// console.log('这里是constructor！');
 		this.state = {
 			a: 1000,
 		};
 		this.sub = this.sub.bind(this);
 	}
 
-	static getDerivedStateFromProps(nextProps, nextState) {
-		console.log('这里是static getDerivedStateFromProps！');
-		console.log('static getDerivedStateFromProps！', 'nextProps', nextProps, 'nextState', nextState);
-		return null;
-	}
+	// static getDerivedStateFromProps(nextProps, nextState) {
+	// 	console.log('这里是static getDerivedStateFromProps！');
+	// 	console.log('static getDerivedStateFromProps！', 'nextProps', nextProps, 'nextState', nextState);
+	// 	return null;
+	// }
 
 	componentDidMount() {
-		console.log('这里是componentDidMount！');
+		// console.log('这里是componentDidMount！');
 	}
 
 	// shouldComponentUpdate(nextProps, nextState){ //PureComponent 搭配 immutable.js，perfect！
@@ -34,21 +34,21 @@ export default class InfoCards extends React.Component {
 	// 	console.log("THIS","this.props",this.props,"this.state",this.state);
 	// 	return true;
 	// }
-	getSnapshotBeforeUpdate(prevProps, prevState) {
-		console.log('这里是getSnapshotBeforeUpdate！');
-		console.log('getSnapshotBeforeUpdate！', 'prevProps', prevProps, 'prevState', prevState);
-		console.log('THIS', 'this.props', this.props, 'this.state', this.state);
-		return '滚动条在150px处~';
-	}
+	// getSnapshotBeforeUpdate(prevProps, prevState) {
+	// 	console.log('这里是getSnapshotBeforeUpdate！');
+	// 	console.log('getSnapshotBeforeUpdate！', 'prevProps', prevProps, 'prevState', prevState);
+	// 	console.log('THIS', 'this.props', this.props, 'this.state', this.state);
+	// 	return '滚动条在150px处~';
+	// }
 
-	componentDidUpdate(prevProps, prevState, snapshot) {
-		console.log('这里是componentDidUpdate！');
-		console.log('componentDidUpdate！', 'prevProps', prevProps, 'prevState', prevState, 'snapshot', snapshot);
-		console.log('THIS', 'this.props', this.props, 'this.state', this.state);
-	}
+	// componentDidUpdate(prevProps, prevState, snapshot) {
+	// 	console.log('这里是componentDidUpdate！');
+	// 	console.log('componentDidUpdate！', 'prevProps', prevProps, 'prevState', prevState, 'snapshot', snapshot);
+	// 	console.log('THIS', 'this.props', this.props, 'this.state', this.state);
+	// }
 
 	componentWillUnmount() {
-		console.log('这里是componentWillUnmount！');
+		// console.log('这里是componentWillUnmount！');
 	}
 
 	sub() {
@@ -67,7 +67,7 @@ export default class InfoCards extends React.Component {
 
 	render() {
 		const { a } = this.props;
-		console.log('这里是render！');
+		// console.log('这里是render！');
 
 		return (
 			<div className={cx('info-cards-group')}>

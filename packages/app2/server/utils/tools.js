@@ -24,6 +24,7 @@ QueryString.prototype = {
 	toString() {
 		let ret = '';
 		for (const i in this.keys) {
+			if (!Object.prototype.hasOwnProperty.call(this.keys, i)) continue;
 			const key = this.keys[i];
 			const value = this.params[key];
 			ret += `${key}=${value}`;

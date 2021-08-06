@@ -37,25 +37,23 @@ module.exports = {
 				} else {
 					next();
 				}
+				// ↓↓↓↓↓ 未登录
+			} else if (matchWhitelist) {
+				next();
+			} else if (req.xhr) {
+				// 异步请求
+				next({
+					retCode: 401,
+					stack: 'unauthorized',
+					message: '未授权！',
+				});
 			} else {
-				// 未登录
-				if (matchWhitelist) {
-					next();
-				} else if (req.xhr) {
-					// 异步请求
-					next({
-						retCode: 401,
-						stack: 'unauthorized',
-						message: '未授权！',
-					});
+				const fromPos = req.url.indexOf('?');
+				if (fromPos === -1) {
+					const redirectUrl = req.url === '/' ? '/login' : `/login?from=${encodeURIComponent(req.url)}`;
+					res.redirect(redirectUrl);
 				} else {
-					const fromPos = req.url.indexOf('?');
-					if (fromPos === -1) {
-						const redirectUrl = req.url === '/' ? '/login' : `/login?from=${encodeURIComponent(req.url)}`;
-						res.redirect(redirectUrl);
-					} else {
-						res.redirect(`/login?from=${encodeURIComponent(req.url.slice(0, fromPos))}&${req.url.slice(fromPos + 1)}`);
-					}
+					res.redirect(`/login?from=${encodeURIComponent(req.url.slice(0, fromPos))}&${req.url.slice(fromPos + 1)}`);
 				}
 			}
 		}

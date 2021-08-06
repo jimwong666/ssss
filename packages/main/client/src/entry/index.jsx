@@ -1,7 +1,7 @@
 import {
 	registerMicroApps,
 	runAfterFirstMounted,
-	setDefaultMountApp,
+	// setDefaultMountApp,
 	start,
 	initGlobalState,
 	addGlobalUncaughtErrorHandler,
