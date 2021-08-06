@@ -21,14 +21,8 @@ extend(Crypto.prototype, {
 	 * @returns {*}
 	 */
 	encrypt(data, iv) {
-		const cipher = crypto.createCipheriv(
-			'aes-128-cbc',
-			Constants.SECRETKEY,
-			iv.substr(20, 16),
-		);
-		return (
-			cipher.update(data, 'utf8', this.encoding) + cipher.final(this.encoding)
-		);
+		const cipher = crypto.createCipheriv('aes-128-cbc', Constants.SECRETKEY, iv.substr(20, 16));
+		return cipher.update(data, 'utf8', this.encoding) + cipher.final(this.encoding);
 	},
 	/**
 	 * 解密
@@ -38,11 +32,7 @@ extend(Crypto.prototype, {
 	 * @returns {*}
 	 */
 	decrypt(data, iv) {
-		const cipher = crypto.createDecipheriv(
-			'aes-128-cbc',
-			Constants.SECRETKEY,
-			iv.substr(20, 16),
-		);
+		const cipher = crypto.createDecipheriv('aes-128-cbc', Constants.SECRETKEY, iv.substr(20, 16));
 		return cipher.update(data, this.encoding, 'utf8') + cipher.final('utf8');
 	},
 });

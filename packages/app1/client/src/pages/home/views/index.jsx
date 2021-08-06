@@ -51,13 +51,7 @@ export default class Index extends React.Component {
 					<Divider orientation="left" style={{ color: '#999' }}>
 						2020-04-27
 					</Divider>
-					<Cards
-						type="article"
-						href="https://www.baidu.com"
-						text="Redux源码解析"
-						time="9:45"
-						operating={0}
-					/>
+					<Cards type="article" href="https://www.baidu.com" text="Redux源码解析" time="9:45" operating={0} />
 					<Divider orientation="left" style={{ color: '#999' }}>
 						2020-04-24
 					</Divider>

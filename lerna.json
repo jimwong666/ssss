@@ -1,10 +1,5 @@
 {
 	"private": true,
-	"packages": [
-		"packages/*",
-		"packages/main/*",
-		"packages/app1/*",
-		"packages/app2/*"
-	],
+	"packages": ["packages/*", "packages/main/*", "packages/app1/*", "packages/app2/*"],
 	"version": "independent"
 }

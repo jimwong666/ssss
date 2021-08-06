@@ -50,15 +50,7 @@ const xssFilter = function (html) {
 		strong: ['style', 'class'],
 		sub: ['style', 'class'],
 		sup: ['style', 'class'],
-		table: [
-			'style',
-			'class',
-			'id',
-			'border',
-			'width',
-			'cellpadding',
-			'cellspacing',
-		],
+		table: ['style', 'class', 'id', 'border', 'width', 'cellpadding', 'cellspacing'],
 		tbody: ['style', 'class'],
 		td: ['style', 'class', 'id', 'contenteditable', 'colspan', 'rowspan'],
 		tfoot: ['style', 'class'],
@@ -80,8 +72,7 @@ const xssFilter = function (html) {
 		for (const attr in elem.attribs) {
 			if (
 				whiteList[elem.name].indexOf(attr) === -1 ||
-				((attr === 'src' || attr === 'href') &&
-					!whiteProtocolsReg.test(elem.attribs[attr]))
+				((attr === 'src' || attr === 'href') && !whiteProtocolsReg.test(elem.attribs[attr]))
 			) {
 				$(elem).attr(attr, null);
 			}

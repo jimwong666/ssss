@@ -1,12 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-	HomeOutlined,
-	ReadOutlined,
-	ProfileOutlined,
-	EllipsisOutlined,
-} from '@ant-design/icons';
+import { HomeOutlined, ReadOutlined, ProfileOutlined, EllipsisOutlined } from '@ant-design/icons';
 
 import classNames from 'classnames/bind';
 import styles from '../styles/index.scss';
@@ -80,11 +75,7 @@ export default class Main extends React.Component {
 								</Breadcrumb.Item>
 							))}
 						</Breadcrumb>
-						<div
-							className={cx('site-layout-background')}
-							id="micro_app"
-							style={{ padding: 24 }}
-						>
+						<div className={cx('site-layout-background')} id="micro_app" style={{ padding: 24 }}>
 							<div>这里是main</div>
 							{contents}
 						</div>

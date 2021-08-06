@@ -41,9 +41,7 @@ const RegistrationForm = () => {
 		if (!value) {
 			setAutoCompleteResult([]);
 		} else {
-			setAutoCompleteResult(
-				['.com', '.org', '.net'].map((domain) => `${value}${domain}`),
-			);
+			setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
 		}
 	};
 
@@ -93,9 +91,7 @@ const RegistrationForm = () => {
 								return Promise.resolve();
 							}
 
-							return Promise.reject(
-								new Error('The two passwords that you entered do not match!'),
-							);
+							return Promise.reject(new Error('The two passwords that you entered do not match!'));
 						},
 					}),
 				]}
@@ -128,19 +124,12 @@ const RegistrationForm = () => {
 					},
 				]}
 			>
-				<AutoComplete
-					options={websiteOptions}
-					onChange={onWebsiteChange}
-					placeholder="website"
-				>
+				<AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
 					<Input />
 				</AutoComplete>
 			</Form.Item>
 
-			<Form.Item
-				label="Captcha"
-				extra="We must make sure that your are a human."
-			>
+			<Form.Item label="Captcha" extra="We must make sure that your are a human.">
 				<Row gutter={8}>
 					<Col span={12}>
 						<Form.Item
@@ -167,10 +156,7 @@ const RegistrationForm = () => {
 				valuePropName="checked"
 				rules={[
 					{
-						validator: (_, value) =>
-							value
-								? Promise.resolve()
-								: Promise.reject(new Error('Should accept agreement')),
+						validator: (_, value) => (value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement'))),
 					},
 				]}
 				{...tailFormItemLayout}

@@ -66,9 +66,7 @@ exports.route = function (app) {
 			},
 			errors(root, nodeStatsArray, next) {
 				if (nodeStatsArray.error) {
-					logger
-						.getLogger()
-						.error(`register failure:${JSON.stringify(nodeStatsArray)}`);
+					logger.getLogger().error(`register failure:${JSON.stringify(nodeStatsArray)}`);
 				}
 				next();
 			},

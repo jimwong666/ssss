@@ -51,17 +51,10 @@ module.exports = {
 				} else {
 					const fromPos = req.url.indexOf('?');
 					if (fromPos === -1) {
-						const redirectUrl =
-							req.url === '/'
-								? '/login'
-								: `/login?from=${encodeURIComponent(req.url)}`;
+						const redirectUrl = req.url === '/' ? '/login' : `/login?from=${encodeURIComponent(req.url)}`;
 						res.redirect(redirectUrl);
 					} else {
-						res.redirect(
-							`/login?from=${encodeURIComponent(
-								req.url.slice(0, fromPos),
-							)}&${req.url.slice(fromPos + 1)}`,
-						);
+						res.redirect(`/login?from=${encodeURIComponent(req.url.slice(0, fromPos))}&${req.url.slice(fromPos + 1)}`);
 					}
 				}
 			}

@@ -19,11 +19,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		modules: [
-			clientPathResolve('src'),
-			clientPathResolve('../node_modules'),
-			'node_modules',
-		],
+		modules: [clientPathResolve('src'), clientPathResolve('../node_modules'), 'node_modules'],
 		extensions: ['.js', '.jsx', '.scss', '.json'],
 		alias: {
 			'@': clientPathResolve('src'),

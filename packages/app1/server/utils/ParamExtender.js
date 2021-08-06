@@ -25,8 +25,7 @@ extend(ParamExtender, {
 		params.headers['X-Forwarded-For'] = req.realIp;
 		params.headers['X-ClientVersion'] = conf.version;
 		params.headers['X-Token'] = params.headers['X-Token'] || session.xToken;
-		params.headers['X-ClientType'] =
-			params.headers['X-ClientType'] || conf.clientType;
+		params.headers['X-ClientType'] = params.headers['X-ClientType'] || conf.clientType;
 
 		return extend(params, {
 			id: session.id,

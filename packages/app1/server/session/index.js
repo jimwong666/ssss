@@ -23,11 +23,7 @@ extend(Session, {
 			status: logon.status, // 近期1天/1周/1个月/3个月/半年/1年活动
 			xToken: logon.xToken, // 大后端给的
 		};
-		res.cookie(
-			'session',
-			crypto.encrypt(JSON.stringify(session), req.pid),
-			opts,
-		);
+		res.cookie('session', crypto.encrypt(JSON.stringify(session), req.pid), opts);
 		res.cookie('xToken', logon.xtoken, opts);
 	},
 	/**
@@ -48,9 +44,7 @@ extend(Session, {
 		const COOKIE_DOMAIN = req.headers.host;
 
 		// logger.getLogger().info(req.hasOwnProperty('cookies'), req.cookies.session, 'Cookie, Session');
-		const token = Object.prototype.hasOwnProperty.call(req, 'cookies')
-			? req.cookies.session
-			: null;
+		const token = Object.prototype.hasOwnProperty.call(req, 'cookies') ? req.cookies.session : null;
 		let ret = {};
 		if (token) {
 			try {
@@ -66,11 +60,7 @@ extend(Session, {
 			};
 
 			// 创建未认证的会话
-			res.cookie(
-				'session',
-				crypto.encrypt(JSON.stringify(session), req.pid),
-				opts,
-			);
+			res.cookie('session', crypto.encrypt(JSON.stringify(session), req.pid), opts);
 			ret = session;
 		}
 		return ret;
@@ -82,11 +72,7 @@ extend(Session, {
 		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, sameSite: false };
 
 		session = extend(session, hash);
-		res.cookie(
-			'session',
-			crypto.encrypt(JSON.stringify(session), req.pid),
-			opts,
-		);
+		res.cookie('session', crypto.encrypt(JSON.stringify(session), req.pid), opts);
 
 		return session;
 	},

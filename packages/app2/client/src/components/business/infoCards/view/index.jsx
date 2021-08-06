@@ -1,10 +1,6 @@
 import React from 'react';
 import { Card, Avatar, Image, Popover, Tag } from 'antd';
-import {
-	GithubOutlined,
-	WechatOutlined,
-	MoneyCollectOutlined,
-} from '@ant-design/icons';
+import { GithubOutlined, WechatOutlined, MoneyCollectOutlined } from '@ant-design/icons';
 import classNames from 'classnames/bind';
 import styles from '../styles/index.scss';
 
@@ -24,13 +20,7 @@ export default class InfoCards extends React.Component {
 
 	static getDerivedStateFromProps(nextProps, nextState) {
 		console.log('这里是static getDerivedStateFromProps！');
-		console.log(
-			'static getDerivedStateFromProps！',
-			'nextProps',
-			nextProps,
-			'nextState',
-			nextState,
-		);
+		console.log('static getDerivedStateFromProps！', 'nextProps', nextProps, 'nextState', nextState);
 		return null;
 	}
 
@@ -46,28 +36,14 @@ export default class InfoCards extends React.Component {
 	// }
 	getSnapshotBeforeUpdate(prevProps, prevState) {
 		console.log('这里是getSnapshotBeforeUpdate！');
-		console.log(
-			'getSnapshotBeforeUpdate！',
-			'prevProps',
-			prevProps,
-			'prevState',
-			prevState,
-		);
+		console.log('getSnapshotBeforeUpdate！', 'prevProps', prevProps, 'prevState', prevState);
 		console.log('THIS', 'this.props', this.props, 'this.state', this.state);
 		return '滚动条在150px处~';
 	}
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		console.log('这里是componentDidUpdate！');
-		console.log(
-			'componentDidUpdate！',
-			'prevProps',
-			prevProps,
-			'prevState',
-			prevState,
-			'snapshot',
-			snapshot,
-		);
+		console.log('componentDidUpdate！', 'prevProps', prevProps, 'prevState', prevState, 'snapshot', snapshot);
 		console.log('THIS', 'this.props', this.props, 'this.state', this.state);
 	}
 
@@ -111,27 +87,19 @@ export default class InfoCards extends React.Component {
 					actions={[
 						<a href="https://www.baidu.com" key={1}>
 							<Popover placement="top" content={<div>github</div>}>
-								<GithubOutlined
-									className={cx('info-cards-icon')}
-									key="github"
-								/>
+								<GithubOutlined className={cx('info-cards-icon')} key="github" />
 							</Popover>
 						</a>,
 						<Popover key={2} placement="top" content={<div>wechat</div>}>
 							<WechatOutlined className={cx('info-cards-icon')} key="wechat" />
 						</Popover>,
 						<Popover key={3} placement="top" content={<div>money</div>}>
-							<MoneyCollectOutlined
-								className={cx('info-cards-icon')}
-								key="money"
-							/>
+							<MoneyCollectOutlined className={cx('info-cards-icon')} key="money" />
 						</Popover>,
 					]}
 				>
 					<Meta
-						avatar={
-							<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-						}
+						avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
 						title={a}
 						description="欢迎光临~！"
 						onClick={() => this.sub()}

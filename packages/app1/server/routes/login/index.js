@@ -17,13 +17,7 @@ router.post('/', function (req, res) {
 	};
 
 	backend.post('/login', params, req, res, function (data) {
-		logger
-			.getLogger()
-			.info(
-				`【登录】 | POST | req.body.userName | req.realIp | /web/login | ${JSON.stringify(
-					data,
-				)}`,
-			);
+		logger.getLogger().info(`【登录】 | POST | req.body.userName | req.realIp | /web/login | ${JSON.stringify(data)}`);
 
 		// TODO: 处理好登陆链接的 from 参数
 		if (data && data.retCode === 0) {

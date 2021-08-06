@@ -26,15 +26,9 @@ export default function MessageCards(props) {
 				<Card size="small" className={cx('home-item', 'home-message-item-sub')}>
 					<Meta
 						avatar={
-							<Avatar
-								alt="头像"
-								size={20}
-								src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-							/>
+							<Avatar alt="头像" size={20} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
 						}
-						title={
-							<span className={cx('message-userName-sub')}>{subUserName}</span>
-						}
+						title={<span className={cx('message-userName-sub')}>{subUserName}</span>}
 						description={
 							<>
 								<span className={cx('home-item-icon-sub')}>
@@ -51,12 +45,7 @@ export default function MessageCards(props) {
 					回复
 				</Divider>
 				<Meta
-					avatar={
-						<Avatar
-							alt="头像"
-							src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-						/>
-					}
+					avatar={<Avatar alt="头像" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
 					title={<span className={cx('message-userName')}>{userName}</span>}
 					description={
 						<>

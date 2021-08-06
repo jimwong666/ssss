@@ -38,10 +38,7 @@ export default class Main extends React.Component {
 								</Breadcrumb.Item>
 							))}
 						</Breadcrumb>
-						<div
-							className={cx('site-layout-background')}
-							style={{ padding: 24 }}
-						>
+						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
 							{text}
 						</div>
 					</Content>
@@ -69,10 +66,7 @@ export default class Main extends React.Component {
 								</Breadcrumb.Item>
 							))}
 						</Breadcrumb>
-						<div
-							className={cx('site-layout-background')}
-							style={{ padding: 24 }}
-						>
+						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
 							<div>这里是app2</div>
 							{text}
 						</div>

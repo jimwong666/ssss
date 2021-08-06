@@ -25,12 +25,7 @@ export default function CommentCards(props) {
 				type="inner"
 			>
 				<Meta
-					avatar={
-						<Avatar
-							alt="头像"
-							src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-						/>
-					}
+					avatar={<Avatar alt="头像" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
 					title={<span className={cx('message-userName')}>{userName}</span>}
 					description={
 						<>

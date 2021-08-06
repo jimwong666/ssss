@@ -15,13 +15,7 @@ module.exports = {
 			stack: err.stack || 'server errors',
 			message: err.message || '服务器内部错误！',
 		};
-		logger
-			.getLogger()
-			.error(
-				`${errData.retCode} | Request failed: "${req.url}"`,
-				'\n',
-				errData.stack,
-			);
+		logger.getLogger().error(`${errData.retCode} | Request failed: "${req.url}"`, '\n', errData.stack);
 
 		if (req.xhr) {
 			res.status(err.retCode || 500).send(errData);

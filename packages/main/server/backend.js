@@ -34,10 +34,7 @@ function doRequest(method, uri, params, callback) {
 	const options = {
 		url: uri,
 		method: method.toUpperCase(),
-		timeout:
-			uri.indexOf('/excel') !== -1
-				? conf.fileSocketTimeout || conf.socketTimeout
-				: conf.socketTimeout,
+		timeout: uri.indexOf('/excel') !== -1 ? conf.fileSocketTimeout || conf.socketTimeout : conf.socketTimeout,
 		headers,
 	};
 
@@ -59,10 +56,7 @@ function doRequest(method, uri, params, callback) {
 		} else if (typeof body !== 'undefined') {
 			let json = {};
 			if (typeof body === 'string') {
-				if (
-					res.headers &&
-					res.headers['content-type'] === 'application/octet-stream'
-				) {
+				if (res.headers && res.headers['content-type'] === 'application/octet-stream') {
 					json = body;
 				} else {
 					try {
@@ -70,10 +64,7 @@ function doRequest(method, uri, params, callback) {
 					} catch (e) {
 						logger
 							.getLogger()
-							.error(
-								`Error occurred when accessing backend "${uri}", response content is:\n${body}`,
-								e,
-							);
+							.error(`Error occurred when accessing backend "${uri}", response content is:\n${body}`, e);
 					}
 				}
 			} else {
@@ -146,9 +137,7 @@ function execute(method, uri, params, callback) {
 				method = task.method || method;
 				doRequest(method, uri, requestParams, function (err, data) {
 					if (err) {
-						errors.push(
-							`Running task "${task.uri}" failed - ${err.toString()}`,
-						);
+						errors.push(`Running task "${task.uri}" failed - ${err.toString()}`);
 					} else {
 						task.task(data);
 					}
@@ -209,9 +198,7 @@ module.exports = {
 		let queryString = '';
 		if (method === 'GET') {
 			queryString = tools.Serialize(form);
-			uri += queryString
-				? (uri.indexOf('?') === -1 ? '?' : '&') + queryString
-				: '';
+			uri += queryString ? (uri.indexOf('?') === -1 ? '?' : '&') + queryString : '';
 		}
 		delete form.method;
 
