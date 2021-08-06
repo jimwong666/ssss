@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import simpleAsync from '@utils/reduxSimpleAsync';
 import rootReducer from '../rootReducer';
 
-const { __REDUX_DEVTOOLS_EXTENSION__, __POWERED_BY_QIANKUN__ } = window;
+const { __REDUX_DEVTOOLS_EXTENSION__, __POWERED_BY_QIANKUN__, APP_NAME } = window;
 const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 	rootReducer,
 	__REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__(),
@@ -22,8 +22,7 @@ const render = (App, el) => {
 	);
 };
 
-if (!__POWERED_BY_QIANKUN__)
-	render(RootRouter, document.getElementById('root2'));
+if (!__POWERED_BY_QIANKUN__) render(RootRouter, document.getElementById(`root_${APP_NAME}`));
 
 /**
  * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
@@ -39,9 +38,7 @@ export async function bootstrap() {
 export async function mount(props) {
 	render(
 		RootRouter,
-		props.container
-			? props.container.querySelector('#root2')
-			: document.getElementById('root2'),
+		props.container ? props.container.querySelector(`#root_${APP_NAME}`) : document.getElementById(`root_${APP_NAME}`),
 	);
 }
 
@@ -50,9 +47,7 @@ export async function mount(props) {
  */
 export async function unmount(props) {
 	ReactDOM.unmountComponentAtNode(
-		props.container
-			? props.container.querySelector('#root2')
-			: document.getElementById('root2'),
+		props.container ? props.container.querySelector(`#root_${APP_NAME}`) : document.getElementById(`root_${APP_NAME}`),
 	);
 }
 

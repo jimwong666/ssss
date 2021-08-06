@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
@@ -20,11 +21,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		modules: [
-			clientPathResolve('src'),
-			clientPathResolve('../node_modules'),
-			'node_modules',
-		],
+		modules: [clientPathResolve('src'), clientPathResolve('../node_modules'), 'node_modules'],
 		extensions: ['.js', '.jsx', '.scss', '.json'],
 		alias: {
 			'@': clientPathResolve('src'),
@@ -39,10 +36,4 @@ module.exports = {
 			'@router': clientPathResolve('src/router'),
 		},
 	},
-	plugins: [
-		new webpack.DefinePlugin({
-			// app name
-			APP_NAME: appConfig.appName,
-		}),
-	],
 };

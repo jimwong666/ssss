@@ -120,8 +120,11 @@ module.exports = merge(webpackBaseConfig, {
 				title: `${chunkName}-博客`,
 				filename: `${chunkName}.html`,
 				chunks: [chunkName],
-				template: clientPathResolve('public/index.html'),
+				template: clientPathResolve('public/index.ejs'),
 				favicon: clientPathResolve('public/favicon.ico'),
+				templateParameters: {
+					APP_NAME: appConfig.appName,
+				},
 			});
 		}),
 	),
