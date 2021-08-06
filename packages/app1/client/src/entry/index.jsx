@@ -29,15 +29,14 @@ if (!__POWERED_BY_QIANKUN__) render(RootRouter, document.getElementById(`root_${
  * 通常我们可以在这里做一些全局变量的初始化，比如不会在 unmount 阶段被销毁的应用级别的缓存等。
  */
 export async function bootstrap() {
-	console.log('react app bootstraped');
+	console.log('app1 初始化');
 }
 
 /**
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
-	console.log('进入 index1');
-
+	console.log('app1 挂载');
 	render(
 		RootRouter,
 		props.container ? props.container.querySelector(`#root_${APP_NAME}`) : document.getElementById(`root_${APP_NAME}`),
@@ -48,6 +47,7 @@ export async function mount(props) {
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
  */
 export async function unmount(props) {
+	console.log('app1 卸载');
 	ReactDOM.unmountComponentAtNode(
 		props.container ? props.container.querySelector(`#root_${APP_NAME}`) : document.getElementById(`root_${APP_NAME}`),
 	);
@@ -57,5 +57,6 @@ export async function unmount(props) {
  * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
  */
 export async function update(props) {
+	console.log('app1 更新');
 	console.log('update props', props);
 }

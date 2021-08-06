@@ -30,7 +30,7 @@ export default class Main extends React.Component {
 		return __POWERED_BY_QIANKUN__ ? (
 			<Layout style={{ minHeight: '100vh' }}>
 				<Layout className={cx('site-layout')}>
-					<Content className={cx('mian-content')} style={{ margin: '0 16px' }}>
+					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
 						<Breadcrumb style={{ margin: '16px 0' }}>
 							{breadcrumbs.map((item, index) => (
 								<Breadcrumb.Item key={item}>
@@ -58,7 +58,7 @@ export default class Main extends React.Component {
 					</Menu>
 				</Sider>
 				<Layout className={cx('site-layout')}>
-					<Content className={cx('mian-content')} style={{ margin: '0 16px' }}>
+					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
 						<Breadcrumb style={{ margin: '16px 0' }}>
 							{breadcrumbs.map((item, index) => (
 								<Breadcrumb.Item key={item}>

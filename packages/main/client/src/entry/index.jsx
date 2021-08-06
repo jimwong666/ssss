@@ -52,7 +52,7 @@ registerMicroApps(
 			container: '#micro_app',
 			activeRule: '/app1',
 			loader() {
-				console.log('app1 loading');
+				console.log('app1 加载！');
 			},
 		},
 		{
@@ -61,34 +61,34 @@ registerMicroApps(
 			container: '#micro_app',
 			activeRule: '/app2',
 			loader() {
-				console.log('app1 loading');
+				console.log('app1 加载！');
 			},
 		},
 	],
 	{
 		beforeLoad: [
 			(app) => {
-				console.log('[LifeCycle] beforeLoad 生命周期', app.name);
+				console.log('[生命周期] beforeLoad', app.name);
 			},
 		],
 		beforeMount: [
 			(app) => {
-				console.log('[LifeCycle] beforeMount 生命周期', app.name);
+				console.log('[生命周期] beforeMount', app.name);
 			},
 		],
 		afterMount: [
 			(app) => {
-				console.log('[LifeCycle] afterMount 生命周期', app.name);
+				console.log('[生命周期] afterMount', app.name);
 			},
 		],
 		beforeUnmount: [
 			(app) => {
-				console.log('[LifeCycle] beforeUnmount 生命周期', app.name);
+				console.log('[生命周期] beforeUnmount', app.name);
 			},
 		],
 		afterUnmount: [
 			(app) => {
-				console.log('[LifeCycle] afterUnmount 生命周期', app.name);
+				console.log('[生命周期] afterUnmount', app.name);
 			},
 		],
 	},
@@ -127,8 +127,5 @@ start({
 });
 
 runAfterFirstMounted(() => {
-	console.log('----------------------------------');
-	console.log(process.env.NODE_ENV);
-	console.log('----------------------------------');
-	console.log('[MainApp] first app mounted');
+	console.log('第一个微应用 - 首次挂载！', process.env.NODE_ENV);
 });

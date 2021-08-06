@@ -1,4 +1,5 @@
 import notFound from '@pages/404';
+import about from '@pages/about';
 import asyncLoad from './asyncLoad';
 
 const routes = [
@@ -37,7 +38,7 @@ const routes = [
 		path: '/about',
 		active: '6',
 		breadcrumb: ['关于'],
-		component: asyncLoad(() => import('@pages/about')),
+		component: about,
 	},
 	{
 		path: '*',

@@ -52,22 +52,22 @@ export default class Main extends React.Component {
 						<Menu.Item key="6" icon={<EllipsisOutlined />}>
 							<Link to="/about">关于</Link>
 						</Menu.Item>
-						<Menu.Item key="7" icon={<ProfileOutlined />}>
-							<Link to="/app1">app1</Link>
+						<Menu.Item key="7" icon={<HomeOutlined />}>
+							<Link to="/app1">app1-首页</Link>
 						</Menu.Item>
 						<Menu.Item key="8" icon={<EllipsisOutlined />}>
-							<Link to="/app1/messageBoard">app1-m</Link>
+							<Link to="/app1/about">app1-关于</Link>
 						</Menu.Item>
-						<Menu.Item key="9" icon={<ProfileOutlined />}>
-							<Link to="/app2">app2</Link>
+						<Menu.Item key="9" icon={<HomeOutlined />}>
+							<Link to="/app2">app2-首页</Link>
 						</Menu.Item>
 						<Menu.Item key="10" icon={<EllipsisOutlined />}>
-							<Link to="/app2/messageBoard">app2-m</Link>
+							<Link to="/app2/about">app2-关于</Link>
 						</Menu.Item>
 					</Menu>
 				</Sider>
 				<Layout className={cx('site-layout')}>
-					<Content className={cx('mian-content')} style={{ margin: '0 16px' }}>
+					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
 						<Breadcrumb style={{ margin: '16px 0' }}>
 							{breadcrumbs.map((item, index) => (
 								<Breadcrumb.Item key={item}>
