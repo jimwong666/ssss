@@ -25,7 +25,7 @@ export default class Main extends React.Component {
 	render() {
 		const { __POWERED_BY_QIANKUN__ } = window;
 		const { collapsed } = this.state;
-		const { active, breadcrumbs, text } = this.props;
+		const { active, breadcrumbs, text, children } = this.props;
 
 		return __POWERED_BY_QIANKUN__ ? (
 			<Layout style={{ minHeight: '100vh' }}>
@@ -39,7 +39,8 @@ export default class Main extends React.Component {
 							))}
 						</Breadcrumb>
 						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
-							{text}
+							<div>这里是app2</div>
+							{children}
 						</div>
 					</Content>
 				</Layout>
@@ -52,7 +53,7 @@ export default class Main extends React.Component {
 						<Menu.Item key="1" icon={<HomeOutlined />}>
 							<Link to="/">首页</Link>
 						</Menu.Item>
-						<Menu.Item key="6" icon={<EllipsisOutlined />}>
+						<Menu.Item key="2" icon={<EllipsisOutlined />}>
 							<Link to="/about">关于</Link>
 						</Menu.Item>
 					</Menu>
@@ -68,7 +69,7 @@ export default class Main extends React.Component {
 						</Breadcrumb>
 						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
 							<div>这里是app2</div>
-							{text}
+							{children}
 						</div>
 					</Content>
 				</Layout>

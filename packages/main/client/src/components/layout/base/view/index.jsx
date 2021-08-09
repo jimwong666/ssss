@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { HomeOutlined, ReadOutlined, ProfileOutlined, EllipsisOutlined } from '@ant-design/icons';
@@ -25,7 +25,7 @@ export default class Main extends React.Component {
 
 	render() {
 		const { collapsed } = this.state;
-		const { active, breadcrumbs, contents } = this.props;
+		const { active, breadcrumbs, children } = this.props;
 
 		return (
 			<Layout style={{ minHeight: '100vh' }}>
@@ -75,9 +75,10 @@ export default class Main extends React.Component {
 								</Breadcrumb.Item>
 							))}
 						</Breadcrumb>
-						<div className={cx('site-layout-background')} id="micro_app" style={{ padding: 24 }}>
+						<div className={cx('site-layout-background')} id="" style={{ padding: 24 }}>
 							<div>这里是main</div>
-							{contents}
+							{children}
+							<div id="micro_app" />
 						</div>
 					</Content>
 				</Layout>

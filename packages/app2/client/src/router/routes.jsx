@@ -1,4 +1,5 @@
-import asyncLoad from './asyncLoad';
+import React from 'react';
+import BaseComponent from '@components/layout/base';
 
 const routes = [
 	{
@@ -6,19 +7,22 @@ const routes = [
 		exact: true,
 		active: '1',
 		breadcrumb: ['主页'],
-		component: asyncLoad(() => import('@pages/home')),
+		componentTemplate: BaseComponent,
+		child: React.lazy(() => import('@pages/home')),
 	},
 	{
 		path: '/about',
 		active: '2',
 		breadcrumb: ['关于'],
-		component: asyncLoad(() => import('@pages/about')),
+		componentTemplate: BaseComponent,
+		child: React.lazy(() => import('@pages/about')),
 	},
 	{
 		path: '*',
 		active: '',
 		breadcrumb: [],
-		component: asyncLoad(() => import('@pages/404')),
+		componentTemplate: BaseComponent,
+		child: React.lazy(() => import('@pages/404')),
 	},
 ];
 
