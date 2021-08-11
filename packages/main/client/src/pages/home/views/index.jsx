@@ -30,7 +30,7 @@ export default class Index extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// fatherNumber: 1,
+			fatherNumber: 1,
 		};
 		this.test = this.test.bind(this);
 	}
@@ -42,12 +42,35 @@ export default class Index extends React.Component {
 
 	render() {
 		const { customTestFetch, testFetch } = this.props;
+		let { fatherNumber } = this.state;
 		return (
 			<div className={cx('home-content')}>
-				<div>{customTestFetch.get('data')}</div>
-				<div>{String(customTestFetch.get('status'))}</div>
-				<div>{customTestFetch.get('txt')}</div>
 				<div className={cx('info-list')}>
+					<div>{customTestFetch.get('data')}</div>
+					<div>{String(customTestFetch.get('status'))}</div>
+					<div>txt: {customTestFetch.get('txt')}</div>
+					<div>{fatherNumber}</div>
+					<button
+						type="button"
+						onClick={() =>
+							this.setState(
+								(state, props) => {
+									console.log(state, props);
+									return {
+										fatherNumber: ++fatherNumber,
+									};
+								},
+								() => {
+									console.log('setState完成！');
+									this.test({
+										txt: fatherNumber + 1,
+									});
+								},
+							)
+						}
+					>
+						TEST
+					</button>
 					<Divider orientation="left" style={{ color: '#999' }}>
 						2020-04-27
 					</Divider>

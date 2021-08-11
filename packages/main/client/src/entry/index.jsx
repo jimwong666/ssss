@@ -123,7 +123,7 @@ addGlobalUncaughtErrorHandler(handler);
  * 启动应用
  */
 start({
-	prefetch: 'all',
+	// prefetch: 'all',
 });
 
 runAfterFirstMounted(() => {

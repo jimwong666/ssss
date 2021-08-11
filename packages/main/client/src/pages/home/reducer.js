@@ -10,11 +10,12 @@ const testFetch = withAsyncReducer(constant.FETCH_TEST);
 const customTestFetchDefauleValue = fromJS({
 	status: false,
 	data: [0, 1, 2, 3],
+	txt: 0,
 });
 const customTestFetch = (state = customTestFetchDefauleValue, action) => {
 	switch (action.type) {
 		case constant.FETCH_TEST:
-			return state.set('status', !state.get('status')).set('txt', action.data);
+			return state.set('status', !state.get('status')).set('txt', action.data.get('txt'));
 		default:
 			return state;
 	}
