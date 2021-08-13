@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
 const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
-const { rewrites, openPage } = require('./utils/devMultiPageTools');
+// const { rewrites, openPage } = require('./utils/devMultiPageTools');
+const { rewrites } = require('./utils/devMultiPageTools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 const port = appConfig.dev_clientPort || 3000;
@@ -107,16 +108,5 @@ module.exports = merge(webpackBaseConfig, {
 			// 所有ajax请求的基础url
 			BASE_URL: JSON.stringify(`${devApiPath}`),
 		}),
-	].concat(
-		Object.keys(entryObj).map((chunkName) => {
-			// 多页面兼容
-			return new HtmlWebpackPlugin({
-				title: `${chunkName}-博客`,
-				filename: `${chunkName}.html`,
-				chunks: [chunkName],
-				template: clientPathResolve('public/index.html'),
-				favicon: clientPathResolve('public/favicon.ico'),
-			});
-		}),
-	),
+	],
 });

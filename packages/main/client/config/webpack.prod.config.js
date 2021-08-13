@@ -104,17 +104,7 @@ module.exports = merge(webpackBaseConfig, {
 			chunkFilename: 'css/[name].[contenthash:8].css',
 		}),
 		new BundleAnalyzerPlugin(),
-	].concat(
-		Object.keys(entryObj).map((chunkName) => {
-			return new HtmlWebpackPlugin({
-				title: 'paludina的博客',
-				filename: `${chunkName}.html`,
-				chunks: [chunkName],
-				template: clientPathResolve('public/index.html'),
-				// favicon: clientPathResolve('public/favicon.ico') // node处理过了
-			});
-		}),
-	),
+	],
 	optimization: {
 		runtimeChunk: {
 			name: 'runtime',

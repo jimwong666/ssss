@@ -8,4 +8,4 @@ TODO: creat an application launcher based on electron
 TODO: micro app don't load when main app trigger hot reload
 ~~TODO: react-loadable has problem~~(switch to suspense and lazy)
 TODO: main app route menu doesn't match to micro app route
-TODO：home page has some problem on style
+TODO: home page has some problem on style

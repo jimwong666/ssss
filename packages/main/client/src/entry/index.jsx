@@ -32,13 +32,6 @@ const render = (App) => {
 
 render(RootRouter);
 
-// 热模块替换
-// if (process.env.NODE_ENV !== 'production' && module.hot) {
-// 	module.hot.accept('../router/index', () => {
-// 		render(RootRouter);
-// 	});
-// }
-
 /*
  * qiankun
  *
@@ -61,7 +54,7 @@ registerMicroApps(
 			container: '#micro_app',
 			activeRule: '/app2',
 			loader() {
-				console.log('app1 加载！');
+				console.log('app2 加载！');
 			},
 		},
 	],
@@ -98,17 +91,16 @@ registerMicroApps(
  * 全局变量
  */
 const { onGlobalStateChange, setGlobalState } = initGlobalState({
-	user: 'qiankun',
+	app1_hotUpdate: false,
+	app2_hotUpdate: false,
+	user: 'wangjian',
 });
 
-onGlobalStateChange((value, prev) => console.log('全局变量变动触发', value, prev));
-
-setGlobalState({
-	ignore: 'master',
-	user: {
-		name: 'master',
-	},
+onGlobalStateChange((value, prev) => {
+	console.log('全局变量变动触发', value, prev);
 });
+
+setGlobalState({});
 
 /**
  * 添加全局的未捕获异常处理
