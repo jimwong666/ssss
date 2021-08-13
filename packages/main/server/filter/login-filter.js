@@ -23,7 +23,7 @@ module.exports = {
 		const logged = session && session.userIdEnc;
 		const { host } = req.headers;
 
-		if (host.indexOf(res.locals.app.domainUrl) === -1) {
+		if (process.env.NODE_ENV === 'production' && host.indexOf(res.locals.app.domainUrl) === -1) {
 			// 外部调用
 			next();
 		} else {

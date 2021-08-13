@@ -1,7 +1,7 @@
 
 # server config
 appName: "app1"
-domainUrl: "app1.abizaeps.com"
+domainUrl: "app1.scm.aeps.com"
 version: "1.0.0"
 clientType: "PC_WEB"
 title: "microFrontend-1"

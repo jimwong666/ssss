@@ -41,7 +41,7 @@ registerMicroApps(
 	[
 		{
 			name: 'app1',
-			entry: process.env.NODE_ENV === 'production' ? '//app1.abizaeps.com' : '//localhost:4001',
+			entry: process.env.NODE_ENV === 'production' ? '//app1.scm.aeps.com' : '//app1.dev.aeps.com',
 			container: '#micro_app',
 			activeRule: '/app1',
 			loader() {
@@ -50,7 +50,7 @@ registerMicroApps(
 		},
 		{
 			name: 'app2',
-			entry: process.env.NODE_ENV === 'production' ? '//app2.abizaeps.com' : '//localhost:4002',
+			entry: process.env.NODE_ENV === 'production' ? '//app2.scm.aeps.com' : '//app1.dev.aeps.com',
 			container: '#micro_app',
 			activeRule: '/app2',
 			loader() {

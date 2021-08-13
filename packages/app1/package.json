@@ -13,8 +13,8 @@
 	"scripts": {
 		"fe:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./client/config/webpack.config.js --mode=development",
 		"fe:build": "cross-env NODE_ENV=production webpack --config ./client/config/webpack.config.js --mode=production",
-		"be:dev": "cross-env NODE_ENV=development node ./bin/www",
-		"be:prod": "cross-env NODE_ENV=production node ./bin/www",
+		"server:dev": "cross-env NODE_ENV=development node ./bin/www",
+		"server": "cross-env NODE_ENV=production node ./bin/www",
 		"pm2": "pm2 start ./ecosystem.config.js && pm2 monit"
 	},
 	"bugs": {

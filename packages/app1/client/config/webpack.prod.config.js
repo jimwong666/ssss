@@ -107,7 +107,7 @@ module.exports = merge(webpackBaseConfig, {
 			filename: 'css/[name].[contenthash:8].css',
 			chunkFilename: 'css/[name].[contenthash:8].css',
 		}),
-		new BundleAnalyzerPlugin(),
+		// new BundleAnalyzerPlugin(),
 		new webpack.DefinePlugin({
 			// 所有ajax请求的基础url
 			BASE_URL: JSON.stringify(`${distApiPath}`),

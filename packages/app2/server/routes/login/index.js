@@ -24,7 +24,7 @@ router.post('/', function (req, res) {
 			Session.logon(req, res, data);
 			res.redirect('/');
 		} else {
-			res.locals.loginErrInfo.error = data.error;
+			res.locals.loginErrInfo.errorInfo = data.errorInfo;
 			res.locals.loginErrInfo.userName = req.body.userName;
 			res.render('login');
 		}

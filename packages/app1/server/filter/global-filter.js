@@ -42,6 +42,10 @@ module.exports = {
 				domainUrl: conf.domainUrl,
 				version: conf.version,
 			},
+			loginErrInfo: {
+				errorInfo: '',
+				userName: '',
+			},
 		});
 
 		next();
