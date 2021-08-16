@@ -11,8 +11,7 @@ module.exports = {
 	filter(req, res, next) {
 		if (req.locals.app.skipCERFFilter) {
 			// 本站请求，跳过csrf
-			next();
-			return;
+			return next();
 		}
 
 		const matchWhitelist = tools.MatchSome(req.url, Constants.CSRF_WHITE_LIST);

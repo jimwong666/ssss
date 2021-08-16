@@ -13,8 +13,8 @@ const { clientPathResolve, appConfig } = require('./utils/tools');
 
 // const entryObj = getEntry(clientPathResolve('src/entry'));
 
-const publicPath = appConfig.assetsPath || '//scmstatic.abiz.com/';
-const distApiPath = appConfig.distApiPath || '//scm.abiz.com/';
+const publicPath = appConfig.publicPath || '//scmstatic.abiz.com/';
+const apiPath = appConfig.apiPath || '//scm.abiz.com/';
 
 module.exports = merge(webpackBaseConfig, {
 	output: {
@@ -110,7 +110,7 @@ module.exports = merge(webpackBaseConfig, {
 		// new BundleAnalyzerPlugin(),
 		new webpack.DefinePlugin({
 			// 所有ajax请求的基础url
-			BASE_URL: JSON.stringify(`${distApiPath}`),
+			BASE_URL: JSON.stringify(`${apiPath}`),
 		}),
 	],
 	optimization: {

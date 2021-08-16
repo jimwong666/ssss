@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	COOKIE_MAX_AGE: '1800000',
+	COOKIE_MAX_AGE: '604800000',
 
 	CSRF_WHITE_LIST: [],
 

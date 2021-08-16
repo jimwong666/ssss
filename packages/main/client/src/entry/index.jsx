@@ -41,7 +41,7 @@ registerMicroApps(
 	[
 		{
 			name: 'app1',
-			entry: process.env.NODE_ENV === 'production' ? '//app1.scm.aeps.com' : '//app1.dev.aeps.com',
+			entry: process.env.NODE_ENV === 'production' ? '//app1.scm.aeps.com' : '//app1.scm.dev.com',
 			container: '#micro_app',
 			activeRule: '/app1',
 			loader() {
@@ -50,7 +50,7 @@ registerMicroApps(
 		},
 		{
 			name: 'app2',
-			entry: process.env.NODE_ENV === 'production' ? '//app2.scm.aeps.com' : '//app1.dev.aeps.com',
+			entry: process.env.NODE_ENV === 'production' ? '//app2.scm.aeps.com' : '//app2.scm.dev.com',
 			container: '#micro_app',
 			activeRule: '/app2',
 			loader() {
@@ -93,14 +93,15 @@ registerMicroApps(
 const { onGlobalStateChange, setGlobalState } = initGlobalState({
 	app1_hotUpdate: false,
 	app2_hotUpdate: false,
-	user: 'wangjian',
 });
 
 onGlobalStateChange((value, prev) => {
 	console.log('全局变量变动触发', value, prev);
 });
 
-setGlobalState({});
+setGlobalState({
+	user: 'wangjian',
+});
 
 /**
  * 添加全局的未捕获异常处理

@@ -3,13 +3,14 @@ const uuid = require('uuid');
 
 const crypto = require('./crypto');
 const logger = require('../logger');
+const Constants = require('../constants');
 
 const Session = function () {};
 
 extend(Session, {
 	logon(req, res, logon) {
 		const COOKIE_DOMAIN = req.headers.host;
-		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, sameSite: false };
+		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, maxAge: Constants.COOKIE_MAX_AGE, sameSite: false };
 		const current = Session.get(req, res);
 		const session = {
 			id: current.id,
@@ -24,7 +25,7 @@ extend(Session, {
 			xToken: logon.xToken, // 大后端给的
 		};
 		res.cookie('session', crypto.encrypt(JSON.stringify(session), req.pid), opts);
-		res.cookie('xToken', logon.xtoken, opts);
+		res.cookie('xToken', logon.xToken, opts);
 	},
 	/**
 	 * 调用远程认证服务创建会话
@@ -54,7 +55,7 @@ extend(Session, {
 				logger.getLogger().error(`Invalid session token: ${token}\n${e}`);
 			}
 		} else {
-			const opts = { domain: COOKIE_DOMAIN, httpOnly: false, sameSite: false };
+			const opts = { domain: COOKIE_DOMAIN, httpOnly: false, maxAge: Constants.COOKIE_MAX_AGE, sameSite: false };
 			const session = {
 				id: uuid.v4(),
 			};
@@ -69,7 +70,7 @@ extend(Session, {
 		const COOKIE_DOMAIN = req.headers.host;
 
 		let session = Session.get(req, res) || {};
-		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, sameSite: false };
+		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, maxAge: Constants.COOKIE_MAX_AGE, sameSite: false };
 
 		session = extend(session, hash);
 		res.cookie('session', crypto.encrypt(JSON.stringify(session), req.pid), opts);

@@ -14,8 +14,7 @@ module.exports = {
 	filter(req, res, next) {
 		if (req.locals.app.skipLoginFilter) {
 			// 跳过本次中间件
-			next();
-			return;
+			return next();
 		}
 
 		const matchWhitelist = tools.MatchSome(req.url, Constants.LOGIN_WHITE_LIST);
@@ -23,7 +22,7 @@ module.exports = {
 		const logged = session && session.userIdEnc;
 		const { host } = req.headers;
 
-		if (process.env.NODE_ENV === 'production' && host.indexOf(res.locals.app.domainUrl) === -1) {
+		if (host.indexOf(res.locals.app.domainUrl) === -1) {
 			// 外部调用
 			next();
 		} else {

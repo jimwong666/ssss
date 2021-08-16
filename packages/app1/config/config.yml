@@ -1,11 +1,10 @@
 
 # server config
 appName: "app1"
-domainUrl: "app1.scm.aeps.com"
 version: "1.0.0"
 clientType: "PC_WEB"
 title: "microFrontend-1"
-serverPort: 5001
+serverPort: 6001
 logLevel: "INFO"
 logDist: "d:\\log/app1"
 # bff keep-alive超时时间
@@ -16,18 +15,24 @@ socketTimeout: 60000
 fileSocketTimeout: 180000
 # 加密编码
 encoding: "base64"
-# 后端地址
-backendUrl: "https://10.110.1.185:8050"
-# dev
-dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 
-# client config
 # dev
+# client
 dev_clientPort: 4001
 dev_apiPath: "https://focusapi.vemic.com/mock/209"
+# server
+dev_domainUrl: "http://app1.scm.dev.com"
+dev_mainAppDomain: "http://scm.dev.com"
+dev_backendUrl: "https://focusapi.vemic.com/mock/209"
+
 # prod
-assetsPath: "/dist/"
-distApiPath: "https://focusapi.vemic.com/mock/209"
+# client
+publicPath: "/dist/"
+apiPath: "https://focusapi.vemic.com/mock/209"
+# server
+domainUrl: "https://app1.scm.prod.com"
+mainAppDomain: "https://scm.prod.com"
+backendUrl: "https://10.110.1.185:8050"
 
 # cdn 地址
 cdn: ""

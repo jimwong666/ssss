@@ -39,7 +39,7 @@ module.exports = {
 			app: {
 				devMode: isDevMode,
 				staticPath: isDevMode ? conf.cdn : '/',
-				domainUrl: conf.domainUrl,
+				domainUrl: isDevMode ? conf.dev_domainUrl : conf.domainUrl,
 				version: conf.version,
 			},
 			loginErrInfo: {

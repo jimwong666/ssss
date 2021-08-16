@@ -6,14 +6,14 @@
  */
 
 module.exports = {
-	COOKIE_MAX_AGE: '1800000',
+	COOKIE_MAX_AGE: '604800000',
 
 	CSRF_WHITE_LIST: [],
 
 	// 系统内的白名单
-	LOGIN_WHITE_LIST: [/^\/login\/?.*$/, /^\/logout\/?.*$/, /^\/register\/?.*$/],
+	LOGIN_WHITE_LIST: [],
 
-	TIMEOUT_WHITE_LIST: [/^\/register\/?.*$/],
+	TIMEOUT_WHITE_LIST: [],
 
 	SECRETKEY: 'ZB7BUJEvb$#3QLcL', // 16位
 };
