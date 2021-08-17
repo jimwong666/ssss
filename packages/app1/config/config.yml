@@ -21,8 +21,8 @@ encoding: "base64"
 dev_clientPort: 4001
 dev_apiPath: "https://focusapi.vemic.com/mock/209"
 # server
-dev_domainUrl: "http://app1.scm.dev.com"
-dev_mainAppDomain: "http://scm.dev.com"
+dev_domainUrl: "app1.scm.dev.com"
+dev_mainAppDomainUrl: "scm.dev.com"
 dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 
 # prod
@@ -30,8 +30,8 @@ dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 publicPath: "/dist/"
 apiPath: "https://focusapi.vemic.com/mock/209"
 # server
-domainUrl: "https://app1.scm.prod.com"
-mainAppDomain: "https://scm.prod.com"
+domainUrl: "app1.scm.prod.com"
+mainAppDomainUrl: "scm.prod.com"
 backendUrl: "https://10.110.1.185:8050"
 
 # cdn 地址

@@ -22,7 +22,7 @@ dev_clientPort: 4002
 dev_apiPath: "https://focusapi.vemic.com/mock/209"
 # server
 dev_domainUrl: "app2.scm.dev.com"
-dev_mainAppDomain: "app2.scm.dev.com"
+dev_mainAppDomainUrl: "scm.dev.com"
 dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 
 # prod
@@ -31,7 +31,7 @@ publicPath: "/dist/"
 apiPath: "https://focusapi.vemic.com/mock/209"
 # server
 domainUrl: "app2.scm.prod.com"
-mainAppDomain: "scm.prod.com"
+mainAppDomainUrl: "scm.prod.com"
 backendUrl: "https://10.110.1.185:8050"
 
 # cdn 地址

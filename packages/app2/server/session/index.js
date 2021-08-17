@@ -9,7 +9,7 @@ const Session = function () {};
 
 extend(Session, {
 	logon(req, res, logon) {
-		const COOKIE_DOMAIN = req.headers.host;
+		const COOKIE_DOMAIN = req.locals.app.mainAppDomainUrl;
 		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, maxAge: Constants.COOKIE_MAX_AGE, sameSite: false };
 		const current = Session.get(req, res);
 		const session = {
@@ -42,7 +42,7 @@ extend(Session, {
 	 * @param res
 	 */
 	get(req, res) {
-		const COOKIE_DOMAIN = req.headers.host;
+		const COOKIE_DOMAIN = req.locals.app.mainAppDomainUrl;
 
 		// logger.getLogger().info(req.hasOwnProperty('cookies'), req.cookies.session, 'Cookie, Session');
 		const token = Object.prototype.hasOwnProperty.call(req, 'cookies') ? req.cookies.session : null;
@@ -67,7 +67,7 @@ extend(Session, {
 		return ret;
 	},
 	set(req, res, hash) {
-		const COOKIE_DOMAIN = req.headers.host;
+		const COOKIE_DOMAIN = req.locals.app.mainAppDomainUrl;
 
 		let session = Session.get(req, res) || {};
 		const opts = { domain: COOKIE_DOMAIN, httpOnly: false, maxAge: Constants.COOKIE_MAX_AGE, sameSite: false };
@@ -84,7 +84,7 @@ extend(Session, {
 	 * @param res
 	 */
 	destroy(req, res) {
-		const COOKIE_DOMAIN = req.headers.host;
+		const COOKIE_DOMAIN = req.locals.app.mainAppDomainUrl;
 		const opts = {
 			domain: COOKIE_DOMAIN,
 			expires: new Date(1),

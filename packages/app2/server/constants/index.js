@@ -11,7 +11,7 @@ module.exports = {
 	CSRF_WHITE_LIST: [],
 
 	// 系统内的白名单
-	LOGIN_WHITE_LIST: [],
+	LOGIN_WHITE_LIST: [/^\/login\/?.*$/, /^\/logout\/?.*$/, /^\/register\/?.*$/],
 
 	TIMEOUT_WHITE_LIST: [],
 
