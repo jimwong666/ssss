@@ -1,5 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+const { clientPathResolve, getEntry } = require('./utils/tools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 module.exports = {
@@ -35,18 +34,4 @@ module.exports = {
 			'@router': clientPathResolve('src/router'),
 		},
 	},
-	plugins: [].concat(
-		Object.keys(entryObj).map((chunkName) => {
-			return new HtmlWebpackPlugin({
-				title: 'paludina的博客',
-				filename: `${chunkName}.html`,
-				chunks: [chunkName],
-				template: clientPathResolve('public/index.ejs'),
-				favicon: clientPathResolve('public/favicon.ico'), // 其实node那边处理过了
-				templateParameters: {
-					APP_NAME: appConfig.appName,
-				},
-			});
-		}),
-	),
 };

@@ -19,9 +19,10 @@ encoding: "base64"
 # dev
 ## client
 dev_clientPort: 4000
+dev_publicPath: '/'
 dev_apiPath: "https://focusapi.vemic.com/mock/209"
 ## server
-dev_domainUrl: "scm.dev.com"
+dev_domainUrl: "http://scm.dev.com"
 dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 
 # prod
@@ -29,11 +30,11 @@ dev_backendUrl: "https://focusapi.vemic.com/mock/209"
 publicPath: "/dist/"
 apiPath: "https://focusapi.vemic.com/mock/209"
 ## server
-domainUrl: "scm.prod.com"
+domainUrl: "https://scm.prod.com"
 backendUrl: "https://focusapi.vemic.com/mock/209"
 
 # 微应用
-#microApp: ['app1', 'app2']
+microApps: ['app1', 'app2']
 
 # cdn 地址
 cdn: ""

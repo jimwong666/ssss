@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { clientPathResolve, getEntry } = require('./utils/tools');
+const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 module.exports = {
@@ -39,11 +39,14 @@ module.exports = {
 		Object.keys(entryObj).map((chunkName) => {
 			// 多页面兼容
 			return new HtmlWebpackPlugin({
-				title: `${chunkName}-博客`,
+				title: appConfig.appName,
 				filename: `${chunkName}.html`,
 				chunks: [chunkName],
-				template: clientPathResolve('public/index.html'),
+				template: clientPathResolve('public/index.ejs'),
 				favicon: clientPathResolve('public/favicon.ico'), // 其实node那边处理过了
+				templateParameters: {
+					MICRO_APPS: JSON.stringify(appConfig.microApps),
+				},
 			});
 		}),
 	),

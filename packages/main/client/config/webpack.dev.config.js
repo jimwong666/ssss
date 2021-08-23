@@ -10,7 +10,7 @@ const { rewrites } = require('./utils/devMultiPageTools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 const port = appConfig.dev_clientPort || 3000;
-const publicPath = '/';
+const publicPath = appConfig.dev_publicPath || '/';
 const devApiPath = appConfig.dev_apiPath || `http://localhost:${port}/`;
 
 module.exports = merge(webpackBaseConfig, {
@@ -31,8 +31,6 @@ module.exports = merge(webpackBaseConfig, {
 		historyApiFallback: {
 			rewrites,
 		},
-		contentBase: '/',
-		publicPath: '/',
 	},
 	module: {
 		rules: [

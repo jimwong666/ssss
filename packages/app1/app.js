@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 app.all('*', function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', conf.mainAppDomainUrl);
 	// res.header("Access-Control-Allow-Origin", '*');
-	res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept,X-Requested-With');
+	res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
 	res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
 	res.header('Access-Control-Allow-Credentials', 'true');
 	res.header('X-Powered-By', ' 3.2.1');
@@ -65,28 +65,26 @@ app.use((req, res, next) => loginFilter.filter(req, res, next));
 app.use((req, res, next) => csrfFilter.filter(req, res, next));
 
 // router
-if (process.env.NODE_ENV === 'development') {
-	routerRigister.route(app);
-} else {
-	// fe
-	app.use(
-		history({
-			index: '/dist/index.html',
-			// 多页面 支持
-			// rewrites: [
-			//     { from: /\/xxx/, to: '/xxxx.html'}
-			// ]
-		}),
-	);
+routerRigister.route(app);
 
-	// static
-	app.use(
-		'/dist',
-		express.static(path.join(__dirname, 'dist'), {
-			cacheControl: false,
-		}),
-	);
-}
+// fe
+app.use(
+	history({
+		index: '/dist/index.html',
+		// 多页面 支持
+		// rewrites: [
+		//     { from: /\/xxx/, to: '/xxxx.html'}
+		// ]
+	}),
+);
+
+// static
+app.use(
+	'/dist',
+	express.static(path.join(__dirname, 'dist'), {
+		cacheControl: false,
+	}),
+);
 
 // error
 app.use((req, res, next) => errors.notFound(req, res, next));

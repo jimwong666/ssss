@@ -65,28 +65,26 @@ app.use((req, res, next) => loginFilter.filter(req, res, next));
 app.use((req, res, next) => csrfFilter.filter(req, res, next));
 
 // router
-if (process.env.NODE_ENV === 'development') {
-	routerRigister.route(app);
-} else {
-	// fe
-	app.use(
-		history({
-			index: '/dist/index.html',
-			// 多页面 支持
-			// rewrites: [
-			//     { from: /\/xxx/, to: '/xxxx.html'}
-			// ]
-		}),
-	);
+routerRigister.route(app);
 
-	// static
-	app.use(
-		'/dist',
-		express.static(path.join(__dirname, 'dist'), {
-			cacheControl: false,
-		}),
-	);
-}
+// fe
+app.use(
+	history({
+		index: '/dist/index.html',
+		// 多页面 支持
+		// rewrites: [
+		//     { from: /\/xxx/, to: '/xxxx.html'}
+		// ]
+	}),
+);
+
+// static
+app.use(
+	'/dist',
+	express.static(path.join(__dirname, 'dist'), {
+		cacheControl: false,
+	}),
+);
 
 // error
 app.use((req, res, next) => errors.notFound(req, res, next));

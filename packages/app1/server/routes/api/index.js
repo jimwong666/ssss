@@ -1,10 +1,17 @@
 const express = require('express');
 
 const router = express.Router();
-router.get('/error', function (req, res) {
+router.get('/test', function (req, res) {
 	res.send({
-		a: 123,
-		b: 456,
+		a: 1111,
+		b: 22222,
+	});
+});
+
+router.post('/test', function (req, res) {
+	res.send({
+		a: 6666,
+		b: 77777,
 	});
 });
 

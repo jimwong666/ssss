@@ -62,7 +62,7 @@ module.exports = {
 		// eslint
 		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off', // 生产时无console语句
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off', // 生产时无debugger关键字
-		'no-shadow': 'off', // 同文件重复引用校验, 很烦，不够只能
+		'no-shadow': 'off', // 同文件重复引用校验
 		'linebreak-style': 'off', // 换行检查
 		'func-names': 'off', // 函数必须命名（导致匿名函数无法使用）
 		'no-restricted-syntax': 'off', // 禁用特定语法（导致一些语法无法使用：for of）
@@ -82,6 +82,7 @@ module.exports = {
 		'no-dynamic-require': 0,
 	},
 	globals: {
-		BASE_URL: true, // 全局忽略这个
+		// 全局忽略
+		BASE_URL: true,
 	},
 };

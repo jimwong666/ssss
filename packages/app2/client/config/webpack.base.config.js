@@ -36,19 +36,4 @@ module.exports = {
 			'@router': clientPathResolve('src/router'),
 		},
 	},
-	plugins: [].concat(
-		Object.keys(entryObj).map((chunkName) => {
-			// 多页面兼容
-			return new HtmlWebpackPlugin({
-				title: `${chunkName}-博客`,
-				filename: `${chunkName}.html`,
-				chunks: [chunkName],
-				template: clientPathResolve('public/index.ejs'),
-				favicon: clientPathResolve('public/favicon.ico'),
-				templateParameters: {
-					APP_NAME: appConfig.appName,
-				},
-			});
-		}),
-	),
 };

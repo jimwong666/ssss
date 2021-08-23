@@ -9,9 +9,6 @@ import simpleAsync from '@utils/reduxSimpleAsync';
 import rootReducer from '../rootReducer';
 
 const { __REDUX_DEVTOOLS_EXTENSION__, __POWERED_BY_QIANKUN__, APP_NAME } = window;
-let { webpackHotUpdateapp1_name_ } = window;
-let onGlobalStateChange, setGlobalState;
-
 const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 	rootReducer,
 	__REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__(),
@@ -28,14 +25,16 @@ const render = (App, el) => {
 
 if (!__POWERED_BY_QIANKUN__) render(RootRouter, document.getElementById(`root_${APP_NAME}`));
 
-// 触发热更新
-window.webpackHotUpdateapp1_name_ = function (chunkId, moreModules) {
-	console.log('[HRM-热更新]：可以做点什么呢...');
-	setGlobalState({
-		app1_hotUpdate: true,
-	});
-	webpackHotUpdateapp1_name_ && webpackHotUpdateapp1_name_(chunkId, moreModules);
-};
+// let onGlobalStateChange, setGlobalState;
+// let { webpackHotUpdateapp1_name_ } = window;
+// 触发热更新-test
+// window.webpackHotUpdateapp1_name_ = function (chunkId, moreModules) {
+// 	console.log('[HRM-热更新]：可以做点什么呢...');
+// 	setGlobalState({
+// 		app1_hotUpdate: true,
+// 	});
+// 	webpackHotUpdateapp1_name_ && webpackHotUpdateapp1_name_(chunkId, moreModules);
+// };
 
 /**
  * bootstrap 只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap。
@@ -51,8 +50,9 @@ export async function bootstrap(props) {
 export async function mount(props) {
 	console.log('app1 挂载');
 	console.log('mount props', props);
-	onGlobalStateChange = props?.onGlobalStateChange;
-	setGlobalState = props?.setGlobalState;
+	console.log('window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__', window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__);
+	// onGlobalStateChange = props?.onGlobalStateChange;
+	// setGlobalState = props?.setGlobalState;
 	render(
 		RootRouter,
 		props.container ? props.container.querySelector(`#root_${APP_NAME}`) : document.getElementById(`root_${APP_NAME}`),

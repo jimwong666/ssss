@@ -1,17 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpackBaseConfig = require('./webpack.base.config');
-// const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
-const { clientPathResolve, appConfig } = require('./utils/tools');
+const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
 
-// const entryObj = getEntry(clientPathResolve('src/entry'));
+const entryObj = getEntry(clientPathResolve('src/entry'));
 
 const publicPath = appConfig.publicPath || '//scmstatic.abiz.com/';
 const apiPath = appConfig.apiPath || '//scm.abiz.com/';
@@ -21,7 +20,7 @@ module.exports = merge(webpackBaseConfig, {
 		filename: 'js/[name].[chunkhash:8].js',
 		chunkFilename: 'js/[name].[chunkhash:8].js',
 		path: clientPathResolve('../dist'),
-		publicPath,
+		publicPath, // 运行 qiankun 时，改用了运行时 publicPath，请查看 src/public-path.js
 		library: `${appConfig.appName}-[name]`,
 		libraryTarget: 'umd',
 		jsonpFunction: `webpackJsonp_${appConfig.appName}`,
@@ -112,7 +111,21 @@ module.exports = merge(webpackBaseConfig, {
 			// 所有ajax请求的基础url
 			BASE_URL: JSON.stringify(`${apiPath}`),
 		}),
-	],
+	].concat(
+		Object.keys(entryObj).map((chunkName) => {
+			return new HtmlWebpackPlugin({
+				title: appConfig.appName,
+				filename: `${chunkName}.html`,
+				chunks: [chunkName],
+				template: clientPathResolve('public/index.ejs'),
+				favicon: clientPathResolve('public/favicon.ico'), // 其实node那边处理过了
+				templateParameters: {
+					APP_NAME: appConfig.appName,
+					PUBLIC_PATH: appConfig.publicPath,
+				},
+			});
+		}),
+	),
 	optimization: {
 		runtimeChunk: {
 			name: 'runtime',

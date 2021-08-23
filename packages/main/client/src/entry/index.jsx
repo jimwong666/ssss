@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import simpleAsync from '@utils/reduxSimpleAsync';
 import rootReducer from '../rootReducer';
 
-const { __REDUX_DEVTOOLS_EXTENSION__ } = window;
+const { __REDUX_DEVTOOLS_EXTENSION__, MICRO_APPS, location } = window;
 const store = applyMiddleware(thunk, simpleAsync)(createStore)(
 	rootReducer,
 	__REDUX_DEVTOOLS_EXTENSION__ && __REDUX_DEVTOOLS_EXTENSION__(),
@@ -37,55 +37,45 @@ render(RootRouter);
  *
  * */
 
-registerMicroApps(
-	[
-		{
-			name: 'app1',
-			entry: process.env.NODE_ENV === 'production' ? '//app1.scm.aeps.com' : '//app1.scm.dev.com',
-			container: '#micro_app',
-			activeRule: '/app1',
-			loader() {
-				console.log('app1 加载！');
-			},
+let apps = MICRO_APPS.map((app) => {
+	return {
+		name: app,
+		entry: `${location.protocol}//${app}.${location.host}/`,
+		container: '#micro_app',
+		activeRule: `/${app}`,
+		loader() {
+			console.log(`${app} 加载！`);
 		},
-		{
-			name: 'app2',
-			entry: process.env.NODE_ENV === 'production' ? '//app2.scm.aeps.com' : '//app2.scm.dev.com',
-			container: '#micro_app',
-			activeRule: '/app2',
-			loader() {
-				console.log('app2 加载！');
-			},
+	};
+});
+
+registerMicroApps(apps, {
+	beforeLoad: [
+		(app) => {
+			console.log('[生命周期] beforeLoad', app.name);
 		},
 	],
-	{
-		beforeLoad: [
-			(app) => {
-				console.log('[生命周期] beforeLoad', app.name);
-			},
-		],
-		beforeMount: [
-			(app) => {
-				console.log('[生命周期] beforeMount', app.name);
-			},
-		],
-		afterMount: [
-			(app) => {
-				console.log('[生命周期] afterMount', app.name);
-			},
-		],
-		beforeUnmount: [
-			(app) => {
-				console.log('[生命周期] beforeUnmount', app.name);
-			},
-		],
-		afterUnmount: [
-			(app) => {
-				console.log('[生命周期] afterUnmount', app.name);
-			},
-		],
-	},
-);
+	beforeMount: [
+		(app) => {
+			console.log('[生命周期] beforeMount', app.name);
+		},
+	],
+	afterMount: [
+		(app) => {
+			console.log('[生命周期] afterMount', app.name);
+		},
+	],
+	beforeUnmount: [
+		(app) => {
+			console.log('[生命周期] beforeUnmount', app.name);
+		},
+	],
+	afterUnmount: [
+		(app) => {
+			console.log('[生命周期] afterUnmount', app.name);
+		},
+	],
+});
 
 /**
  * 全局变量
@@ -117,6 +107,18 @@ addGlobalUncaughtErrorHandler(handler);
  */
 start({
 	// prefetch: 'all',
+	fetch: function (url, obj) {
+		console.log('fetch参数', url, obj);
+		// 给指定的微应用 entry 开启跨域请求
+		if (url.indexOf(`.${location.host}`) !== -1) {
+			return window.fetch(url, {
+				...obj,
+				mode: 'cors',
+				credentials: 'include',
+			});
+		}
+		return window.fetch(url, obj);
+	},
 });
 
 runAfterFirstMounted(() => {

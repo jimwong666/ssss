@@ -13,7 +13,10 @@ module.exports = {
 			app: {
 				skipLoginFilter: false,
 				skipCERFFilter: false,
-				mainAppDomainUrl: process.env.NODE_ENV === 'development' ? conf.dev_mainAppDomainUrl : conf.mainAppDomainUrl,
+				cookieDomain: (process.env.NODE_ENV === 'development'
+					? conf.dev_mainAppDomainUrl
+					: conf.mainAppDomainUrl
+				).split('//')[1],
 			},
 		});
 

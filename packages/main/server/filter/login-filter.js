@@ -22,7 +22,7 @@ module.exports = {
 		const logged = session && session.userIdEnc;
 		const { host } = req.headers;
 
-		if (host.indexOf(res.locals.app.domainUrl) === -1) {
+		if (res.locals.app.domainUrl !== `${req.protocol}://${host}`) {
 			// 外部调用
 			next();
 		} else {
