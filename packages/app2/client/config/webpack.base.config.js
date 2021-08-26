@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { clientPathResolve, getEntry } = require('./utils/tools');
 
 const entryObj = getEntry(clientPathResolve('src/entry'));
 

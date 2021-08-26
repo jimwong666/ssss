@@ -4,6 +4,7 @@
 package.json
 .umi
 .umi-production
+.vscode
 
 **/*.min.js
 **/node_modules/**/*

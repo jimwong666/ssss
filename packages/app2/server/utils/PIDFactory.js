@@ -17,7 +17,7 @@ const generatePID = function (req) {
 
 module.exports = {
 	createPID(req, res) {
-		const COOKIE_DOMAIN = req.locals.app.cookieDomain;
+		const COOKIE_DOMAIN = req.locals.app.mainAppDomain;
 		let { pid } = req.cookies;
 		if (!pid) {
 			pid = generatePID(req);

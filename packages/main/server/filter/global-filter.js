@@ -13,6 +13,7 @@ module.exports = {
 			app: {
 				skipLoginFilter: false,
 				skipCERFFilter: false,
+				domainUrl: isDevMode ? conf.dev_domainUrl : conf.domainUrl,
 			},
 		});
 
@@ -37,9 +38,8 @@ module.exports = {
 		extend(res.locals, {
 			query: req.query,
 			app: {
-				devMode: isDevMode,
+				isDevMode,
 				staticPath: isDevMode ? conf.cdn : '/',
-				domainUrl: isDevMode ? conf.dev_domainUrl : conf.domainUrl,
 				version: conf.version,
 			},
 			loginErrInfo: {

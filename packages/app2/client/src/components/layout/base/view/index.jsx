@@ -25,7 +25,7 @@ export default class Main extends React.Component {
 	render() {
 		const { __POWERED_BY_QIANKUN__ } = window;
 		const { collapsed } = this.state;
-		const { active, breadcrumbs, text, children } = this.props;
+		const { active, breadcrumbs, children } = this.props;
 
 		return __POWERED_BY_QIANKUN__ ? (
 			<Layout style={{ minHeight: '100vh' }}>

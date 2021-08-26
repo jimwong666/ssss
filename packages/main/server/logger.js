@@ -29,7 +29,7 @@ for (const name of params) {
 		backups: 5,
 	};
 	categories[name] = {
-		appenders: [name, 'console'],
+		appenders: isDevMode ? [name, 'console'] : [name],
 		level: 'info',
 	};
 }

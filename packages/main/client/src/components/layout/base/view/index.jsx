@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { HomeOutlined, ReadOutlined, ProfileOutlined, EllipsisOutlined } from '@ant-design/icons';

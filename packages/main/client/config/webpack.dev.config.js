@@ -1,14 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
-const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+const { clientPathResolve, appConfig } = require('./utils/tools');
 // const { rewrites, openPage } = require('./utils/devMultiPageTools');
 const { rewrites } = require('./utils/devMultiPageTools');
 
-const entryObj = getEntry(clientPathResolve('src/entry'));
+// const entryObj = getEntry(clientPathResolve('src/entry'));
 const port = appConfig.dev_clientPort || 3000;
 const publicPath = appConfig.dev_publicPath || '/';
 const devApiPath = appConfig.dev_apiPath || `http://localhost:${port}/`;

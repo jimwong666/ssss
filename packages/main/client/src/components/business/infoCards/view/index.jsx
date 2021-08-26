@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card, Avatar, Image, Popover, Tag } from 'antd';
 import { GithubOutlined, WechatOutlined, MoneyCollectOutlined } from '@ant-design/icons';
+import axios from '@utils/axios';
 import classNames from 'classnames/bind';
+// import { fromJS } from 'immutable';
 import styles from '../styles/index.scss';
 
 const cx = classNames.bind(styles);
@@ -16,6 +18,7 @@ export default class InfoCards extends React.Component {
 			a: 1000,
 		};
 		this.sub = this.sub.bind(this);
+		this.ajax = this.ajax.bind(this);
 	}
 
 	// static getDerivedStateFromProps(nextProps, nextState) {
@@ -65,6 +68,17 @@ export default class InfoCards extends React.Component {
 		);
 	}
 
+	ajax() {
+		axios
+			.get('https://app1.scm.prod.com/api/test')
+			.then(function (res) {
+				console.log('resresresresres:', res);
+			})
+			.catch((error) => {
+				console.log('errrrrrrrrrrrr:', error);
+			});
+	}
+
 	render() {
 		const { a } = this.props;
 		// console.log('这里是render！');
@@ -85,11 +99,9 @@ export default class InfoCards extends React.Component {
 						/>
 					}
 					actions={[
-						<a href="https://www.baidu.com" key={1}>
-							<Popover placement="top" content={<div>github</div>}>
-								<GithubOutlined className={cx('info-cards-icon')} key="github" />
-							</Popover>
-						</a>,
+						<Popover key={1} placement="top" content={<div>github</div>} onClick={() => this.ajax()}>
+							<GithubOutlined className={cx('info-cards-icon')} key="github" />
+						</Popover>,
 						<Popover key={2} placement="top" content={<div>wechat</div>}>
 							<WechatOutlined className={cx('info-cards-icon')} key="wechat" />
 						</Popover>,

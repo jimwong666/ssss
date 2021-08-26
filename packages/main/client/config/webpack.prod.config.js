@@ -1,16 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpackBaseConfig = require('./webpack.base.config');
-const { clientPathResolve, appConfig, getEntry } = require('./utils/tools');
+const { clientPathResolve, appConfig } = require('./utils/tools');
 
-const entryObj = getEntry(clientPathResolve('src/entry'));
+// const entryObj = getEntry(clientPathResolve('src/entry'));
 
 const publicPath = appConfig.publicPath || '//scmstatic.abiz.com/';
 const apiPath = appConfig.apiPath || '//scm.abiz.com/';

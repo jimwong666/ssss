@@ -37,7 +37,7 @@ render(RootRouter);
  *
  * */
 
-let apps = MICRO_APPS.map((app) => {
+const apps = MICRO_APPS.map((app) => {
 	return {
 		name: app,
 		entry: `${location.protocol}//${app}.${location.host}/`,
@@ -107,7 +107,7 @@ addGlobalUncaughtErrorHandler(handler);
  */
 start({
 	// prefetch: 'all',
-	fetch: function (url, obj) {
+	fetch(url, obj) {
 		console.log('fetch参数', url, obj);
 		// 给指定的微应用 entry 开启跨域请求
 		if (url.indexOf(`.${location.host}`) !== -1) {

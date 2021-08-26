@@ -1,12 +1,15 @@
+package.json
+**/node_modules/**/*
+
+**/*.min.js
 **/*.svg
 **/*.ejs
 **/*.html
-package.json
+
 .umi
 .umi-production
+.vscode
 
-**/*.min.js
-**/node_modules/**/*
 **/dist/**/*
 **/log/**/*
 **/public/style/**/*

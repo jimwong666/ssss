@@ -50,7 +50,6 @@ export async function bootstrap(props) {
 export async function mount(props) {
 	console.log('app1 挂载');
 	console.log('mount props', props);
-	console.log('window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__', window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__);
 	// onGlobalStateChange = props?.onGlobalStateChange;
 	// setGlobalState = props?.setGlobalState;
 	render(

@@ -13,7 +13,8 @@ module.exports = {
 			app: {
 				skipLoginFilter: false,
 				skipCERFFilter: false,
-				cookieDomain: (process.env.NODE_ENV === 'development'
+				domainUrl: isDevMode ? conf.dev_domainUrl : conf.domainUrl,
+				mainAppDomain: (process.env.NODE_ENV === 'development'
 					? conf.dev_mainAppDomainUrl
 					: conf.mainAppDomainUrl
 				).split('//')[1],
@@ -41,9 +42,8 @@ module.exports = {
 		extend(res.locals, {
 			query: req.query,
 			app: {
-				devMode: isDevMode,
+				isDevMode,
 				staticPath: isDevMode ? conf.cdn : '/',
-				domainUrl: isDevMode ? conf.dev_domainUrl : conf.domainUrl,
 				version: conf.version,
 			},
 			loginErrInfo: {

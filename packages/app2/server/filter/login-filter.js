@@ -22,39 +22,42 @@ module.exports = {
 		const logged = session && session.userIdEnc;
 		const { host } = req.headers;
 
-		if (res.locals.app.domainUrl !== `${req.protocol}://${host}`) {
+		// if (req.locals.app.domainUrl !== `${req.protocol}://${host}`) {
+		if (
+			(!!req.headers.origin && req.headers.origin.indexOf(req.locals.app.domainUrl) === -1) ||
+			req.locals.app.domainUrl !== `${req.protocol}://${host}`
+		) {
 			// 外部调用
-			next();
-		} else {
-			// 内部调用
-			req.locals.app.skipCERFFilter = true;
-
-			if (logged) {
-				// 已登录
-				if (loginUrlReg.test(req.url)) {
-					res.redirect('/');
-				} else {
-					next();
-				}
-				// ↓↓↓↓↓ 未登录
-			} else if (matchWhitelist) {
-				next();
-			} else if (req.xhr) {
-				// 异步请求
-				next({
-					retCode: 401,
-					stack: 'unauthorized',
-					message: '未授权！',
-				});
-			} else {
-				const fromPos = req.url.indexOf('?');
-				if (fromPos === -1) {
-					const redirectUrl = req.url === '/' ? '/login' : `/login?from=${encodeURIComponent(req.url)}`;
-					res.redirect(redirectUrl);
-				} else {
-					res.redirect(`/login?from=${encodeURIComponent(req.url.slice(0, fromPos))}&${req.url.slice(fromPos + 1)}`);
-				}
-			}
+			return next();
 		}
+		// 内部调用
+		req.locals.app.skipCERFFilter = true;
+
+		if (logged) {
+			// 已登录
+			if (loginUrlReg.test(req.url)) {
+				return res.redirect('/');
+			}
+			return next();
+
+			// ↓↓↓↓↓ 未登录
+		}
+		if (matchWhitelist) {
+			return next();
+		}
+		if (req.xhr) {
+			// 异步请求
+			return next({
+				retCode: 401,
+				stack: 'unauthorized',
+				message: '未授权！',
+			});
+		}
+		const fromPos = req.url.indexOf('?');
+		if (fromPos === -1) {
+			const redirectUrl = req.url === '/' ? '/login' : `/login?from=${encodeURIComponent(req.url)}`;
+			return res.redirect(redirectUrl);
+		}
+		return res.redirect(`/login?from=${encodeURIComponent(req.url.slice(0, fromPos))}&${req.url.slice(fromPos + 1)}`);
 	},
 };

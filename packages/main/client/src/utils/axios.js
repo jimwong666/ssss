@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { getCookieParams } from './cookie';
 
+axios.defaults.withCredentials = true;
 // 新建了一个axios的实例
 const ajax = axios.create({
 	headers: {
