@@ -40,10 +40,6 @@ app.use(bodyParser.json());
 
 // 允许跨域
 app.all('*', function (req, res, next) {
-	console.log('req.headers.referer', req.headers.referer);
-	console.log('req.headers.origin', req.headers.origin);
-	console.log('req.headers.host', req.headers.host);
-
 	// res.header('Access-Control-Allow-Origin', conf.mainAppDomainUrl);
 	res.header('Access-Control-Allow-Origin', req.headers.origin);
 	res.header(

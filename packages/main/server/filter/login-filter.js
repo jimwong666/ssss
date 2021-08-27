@@ -19,32 +19,35 @@ module.exports = {
 
 		const matchWhitelist = tools.MatchSome(req.url, Constants.LOGIN_WHITE_LIST);
 		const session = Session.get(req, res);
-		const logged = session && session.userIdEnc;
+		// const logged = session && session.userIdEnc;
+		const logged = (session && session.userIdEnc) || (req.headers && req.headers['x-token']);
 		const { host } = req.headers;
 
 		// if (req.locals.app.domainUrl !== `${req.protocol}://${host}`) {
+		// 外部调用
 		if (
 			(!!req.headers.origin && req.headers.origin.indexOf(req.locals.app.domainUrl) === -1) ||
 			req.locals.app.domainUrl !== `${req.protocol}://${host}`
 		) {
-			// 外部调用
 			return next();
 		}
+
 		// 内部调用
 		req.locals.app.skipCERFFilter = true;
 
+		// 已登录
 		if (logged) {
-			// 已登录
 			if (loginUrlReg.test(req.url)) {
 				return res.redirect('/');
 			}
 			return next();
-
-			// ↓↓↓↓↓ 未登录
 		}
+
+		// 未登录
 		if (matchWhitelist) {
 			return next();
 		}
+
 		if (req.xhr) {
 			// 异步请求
 			return next({
