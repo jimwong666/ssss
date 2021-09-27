@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 import axios from '@utils/axios';
 import * as constant from './actionsTypes';
 
@@ -22,10 +21,10 @@ const fetchPreDataFailure = (error) => ({
 export const asyncFetchPreDataAction = (callback) => (dispatch) => {
 	dispatch(fetchPreDataRequest());
 	axios
-		.get(`${BASE_URL}/imgList`)
+		.get(`${BASE_URL}/api/imgList`)
 		.then(function (res) {
 			if (res.data) {
-				dispatch(fetchPreDataSuccess(fromJS(res.data)));
+				dispatch(fetchPreDataSuccess(res.data));
 				callback && callback(res.data);
 			}
 		})
@@ -35,8 +34,8 @@ export const asyncFetchPreDataAction = (callback) => (dispatch) => {
 };
 
 // 一样的
-// export const asyncFetchPreData2 = (callback) => ({
-// 	actionTypePrefix: constant.FETCH_CUSTOMER_TEMPLATES,
-// 	request: axios.get(`${BASE_URL}/api/imgList`),
-// 	callback,
-// });
+export const asyncFetchPreDataAction2 = (callback) => ({
+	actionTypePrefix: constant.FETCH_CUSTOMER_TEMPLATES,
+	request: axios.get(`${BASE_URL}/api/imgList`),
+	callback,
+});

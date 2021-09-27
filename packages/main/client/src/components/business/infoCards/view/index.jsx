@@ -3,7 +3,6 @@ import { Card, Avatar, Image, Popover, Tag } from 'antd';
 import { GithubOutlined, WechatOutlined, MoneyCollectOutlined } from '@ant-design/icons';
 import axios from '@utils/axios';
 import classNames from 'classnames/bind';
-// import { fromJS } from 'immutable';
 import styles from '../styles/index.scss';
 
 const cx = classNames.bind(styles);

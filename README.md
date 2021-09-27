@@ -2,7 +2,7 @@
 
 based on react, qiankun, lerna, dumi and more
 
-- TODO: immutable => immutibility-helper (maybe)
+- ~~TODO: immutable => immutibility-helper~~
 - ~~TODO: home page style fix~~
 - TODO: creat an application launcher based on electron(thinking...)
 - TODO: micro app don't load when main app trigger hot reload(no solution...)

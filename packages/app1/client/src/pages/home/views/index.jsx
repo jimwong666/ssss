@@ -13,7 +13,6 @@ const cx = classNames.bind(styles);
 
 const mapStateToProps = (state) => ({
 	customTestFetch: state.getIn(['homeReducer', 'customTestFetch']),
-	testFetch: state.getIn(['homeReducer', 'testFetch']),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -41,12 +40,12 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-		const { customTestFetch, testFetch } = this.props;
+		const { customTestFetch } = this.props;
 		return (
 			<div className={cx('home-content')}>
-				<div>{customTestFetch.get('data')}</div>
-				<div>{String(customTestFetch.get('status'))}</div>
-				<div>{customTestFetch.get('txt')}</div>
+				<div>{customTestFetch.data}</div>
+				<div>{customTestFetch.status}</div>
+				<div>{customTestFetch.txt}</div>
 				<div className={cx('info-list')}>
 					<Divider orientation="left" style={{ color: '#999' }}>
 						2020-04-27
@@ -82,7 +81,7 @@ export default class Index extends React.Component {
 					/>
 				</div>
 				<div className={cx('info-cards')}>
-					<InfoCards father={testFetch} />
+					<InfoCards />
 				</div>
 			</div>
 		);

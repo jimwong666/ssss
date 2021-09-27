@@ -13,7 +13,6 @@ const cx = classNames.bind(styles);
 
 const mapStateToProps = (state) => ({
 	customTestFetch: state.getIn(['homeReducer', 'customTestFetch']),
-	testFetch: state.getIn(['homeReducer', 'testFetch']),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -46,9 +45,9 @@ export default class Index extends React.Component {
 		return (
 			<div className={cx('home-content')}>
 				<div className={cx('info-list')}>
-					<div>{customTestFetch.get('data')}</div>
-					<div>{String(customTestFetch.get('status'))}</div>
-					<div>txt: {customTestFetch.get('txt')}</div>
+					<div>{customTestFetch.data}</div>
+					<div>{String(customTestFetch.status)}</div>
+					<div>txt: {customTestFetch.txt}</div>
 					<div>{fatherNumber}</div>
 					<button
 						type="button"
@@ -105,7 +104,7 @@ export default class Index extends React.Component {
 					/>
 				</div>
 				<div className={cx('info-cards')}>
-					<InfoCards father={testFetch} />
+					<InfoCards />
 				</div>
 			</div>
 		);

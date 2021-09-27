@@ -13,7 +13,6 @@ const cx = classNames.bind(styles);
 
 const mapStateToProps = (state) => ({
 	customTestFetch: state.getIn(['homeReducer', 'customTestFetch']),
-	testFetch: state.getIn(['homeReducer', 'testFetch']),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -30,7 +29,9 @@ export default class Index extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// fatherNumber: 1,
+			test: {
+				fatherNumber: 1,
+			},
 		};
 		this.test = this.test.bind(this);
 	}
@@ -40,19 +41,27 @@ export default class Index extends React.Component {
 		fetchTest(txt);
 	}
 
+	add = () => {
+		this.setState({
+			test: {
+				fatherNumber: ++this.state.test.fatherNumber,
+			},
+		});
+	};
+
 	render() {
-		const { customTestFetch, testFetch } = this.props;
+		const { customTestFetch, fetchTest } = this.props;
 		return (
 			<div className={cx('home-content')}>
 				<div>{customTestFetch.get('data')}</div>
 				<div>{String(customTestFetch.get('status'))}</div>
 				<div>{customTestFetch.get('txt')}</div>
 				<div className={cx('info-list')}>
-					<Divider orientation="left" style={{ color: '#999' }}>
+					<Divider onClick={() => this.add()} orientation="left" style={{ color: '#999' }}>
 						2020-04-27
 					</Divider>
 					<Cards type="article" href="https://www.baidu.com" text="Redux源码解析" time="9:45" operating={0} />
-					<Divider orientation="left" style={{ color: '#999' }}>
+					<Divider onClick={() => fetchTest()} orientation="left" style={{ color: '#999' }}>
 						2020-04-24
 					</Divider>
 					<Cards
@@ -82,7 +91,7 @@ export default class Index extends React.Component {
 					/>
 				</div>
 				<div className={cx('info-cards')}>
-					<InfoCards father={testFetch} />
+					<InfoCards />
 				</div>
 			</div>
 		);

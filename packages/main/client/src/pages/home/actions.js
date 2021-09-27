@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 import * as constant from './actionsTypes';
 
 // fetch test
@@ -7,5 +6,5 @@ const Test = (data) => ({
 	data,
 });
 export const fetchTestAction = (data) => (dispatch) => {
-	dispatch(Test(fromJS(data)));
+	dispatch(Test(data));
 };
