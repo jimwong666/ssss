@@ -25,13 +25,13 @@ export default class Main extends React.Component {
 
 	render() {
 		const { collapsed } = this.state;
-		const { active, breadcrumbs, children } = this.props;
+		const { key, breadcrumbs, children } = this.props;
 
 		return (
 			<Layout style={{ minHeight: '100vh' }}>
 				<Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
 					<div className={cx('logo')} />
-					<Menu theme="dark" defaultSelectedKeys={[active]} mode="inline">
+					<Menu theme="dark" defaultSelectedKeys={[key]} mode="inline">
 						<Menu.Item key="1" icon={<HomeOutlined />}>
 							<Link to="/">首页</Link>
 						</Menu.Item>

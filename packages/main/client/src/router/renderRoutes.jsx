@@ -11,11 +11,10 @@ const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
 					exact={route.exact}
 					strict={route.strict}
 					render={(props) => {
-						// console.log('renderRoutes-props', props);
 						return (
 							<route.componentTemplate
 								breadcrumbs={route.breadcrumb}
-								active={route.active}
+								key={route.key}
 								{...props}
 								{...extraProps}
 								route={route}

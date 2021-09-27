@@ -53,9 +53,9 @@ export default class Index extends React.Component {
 		const { customTestFetch, fetchTest } = this.props;
 		return (
 			<div className={cx('home-content')}>
-				<div>{customTestFetch.get('data')}</div>
-				<div>{String(customTestFetch.get('status'))}</div>
-				<div>{customTestFetch.get('txt')}</div>
+				<div>{customTestFetch.data}</div>
+				<div>{String(customTestFetch.status)}</div>
+				<div>{customTestFetch.txt}</div>
 				<div className={cx('info-list')}>
 					<Divider onClick={() => this.add()} orientation="left" style={{ color: '#999' }}>
 						2020-04-27
