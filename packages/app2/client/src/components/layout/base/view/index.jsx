@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { HomeOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { ReconciliationOutlined } from '@ant-design/icons';
+import { withRouter } from 'react-router-dom';
+import withBase from '../dependencies/WithBase';
+const { Content, Sider } = Layout;
+const { SubMenu } = Menu;
 
 import classNames from 'classnames/bind';
 import styles from '../styles/index.scss';
-
 const cx = classNames.bind(styles);
 
-const { Content, Sider } = Layout;
-
-export default class Main extends React.Component {
+@withRouter
+@withBase
+export default class Base extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -25,21 +27,14 @@ export default class Main extends React.Component {
 	render() {
 		const { __POWERED_BY_QIANKUN__ } = window;
 		const { collapsed } = this.state;
-		const { active, breadcrumbs, children } = this.props;
+		const { selectKeys, children, menuComponents, breadcrumbs } = this.props;
 
 		return __POWERED_BY_QIANKUN__ ? (
 			<Layout style={{ minHeight: '100vh' }}>
 				<Layout className={cx('site-layout')}>
 					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
-						<Breadcrumb style={{ margin: '16px 0' }}>
-							{breadcrumbs.map((item, index) => (
-								<Breadcrumb.Item key={item}>
-									{index}-{item}
-								</Breadcrumb.Item>
-							))}
-						</Breadcrumb>
+						<Breadcrumb style={{ margin: '16px 0' }}>{breadcrumbs}</Breadcrumb>
 						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
-							<div>这里是app2</div>
 							{children}
 						</div>
 					</Content>
@@ -49,26 +44,14 @@ export default class Main extends React.Component {
 			<Layout style={{ minHeight: '100vh' }}>
 				<Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
 					<div className={cx('logo')} />
-					<Menu theme="dark" defaultSelectedKeys={[active]} mode="inline">
-						<Menu.Item key="1" icon={<HomeOutlined />}>
-							<Link to="/">首页</Link>
-						</Menu.Item>
-						<Menu.Item key="2" icon={<EllipsisOutlined />}>
-							<Link to="/about">关于</Link>
-						</Menu.Item>
+					<Menu theme="dark" defaultSelectedKeys={[selectKeys]} mode="inline">
+						{menuComponents}
 					</Menu>
 				</Sider>
 				<Layout className={cx('site-layout')}>
 					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
-						<Breadcrumb style={{ margin: '16px 0' }}>
-							{breadcrumbs.map((item, index) => (
-								<Breadcrumb.Item key={item}>
-									{index}-{item}
-								</Breadcrumb.Item>
-							))}
-						</Breadcrumb>
+						<Breadcrumb style={{ margin: '16px 0' }}>{breadcrumbs}</Breadcrumb>
 						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
-							<div>这里是app2</div>
 							{children}
 						</div>
 					</Content>

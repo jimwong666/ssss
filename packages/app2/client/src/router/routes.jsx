@@ -3,23 +3,24 @@ import BaseComponent from '@components/layout/base';
 
 const routes = [
 	{
-		path: '/',
+		path: '/pm/add',
 		exact: true,
-		active: '1',
-		breadcrumb: ['主页'],
+		key: '6',
+		breadcrumb: ['项目管理', '新增项目'],
 		componentTemplate: BaseComponent,
 		child: React.lazy(() => import('@pages/home')),
 	},
 	{
-		path: '/about',
-		active: '2',
-		breadcrumb: ['关于'],
+		path: '/pm/list',
+		exact: true,
+		key: '7',
+		breadcrumb: ['项目管理', '项目列表'],
 		componentTemplate: BaseComponent,
 		child: React.lazy(() => import('@pages/about')),
 	},
 	{
 		path: '*',
-		active: '',
+		key: '',
 		breadcrumb: [],
 		componentTemplate: BaseComponent,
 		child: React.lazy(() => import('@pages/404')),

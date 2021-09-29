@@ -11,10 +11,19 @@ const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
 					exact={route.exact}
 					strict={route.strict}
 					render={(props) => {
+						let searchObj = {};
+						if (!!props.location.search) {
+							for (let val of props.location.search.substr(1).split('&')) {
+								let valArr = val.split('=');
+								searchObj[valArr[0]] = valArr[1];
+							}
+						}
+						props.location.searchObj = searchObj;
+
 						return (
 							<route.componentTemplate
-								breadcrumbs={route.breadcrumb}
-								active={route.active}
+								breadcrumbArr={route.breadcrumb}
+								selectKeys={route.key}
 								{...props}
 								{...extraProps}
 								route={route}

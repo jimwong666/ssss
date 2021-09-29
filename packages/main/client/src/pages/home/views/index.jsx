@@ -8,6 +8,7 @@ import classNames from 'classnames/bind';
 // import { xml } from 'cheerio';
 import styles from '../styles/index.scss';
 import { fetchTestAction } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -24,6 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
 	),
 });
 
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Index extends React.Component {
 	constructor(props) {
@@ -40,7 +42,7 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-		const { customTestFetch, testFetch } = this.props;
+		const { customTestFetch } = this.props;
 		let { fatherNumber } = this.state;
 		return (
 			<div className={cx('home-content')}>
