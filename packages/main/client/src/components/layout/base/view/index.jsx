@@ -27,22 +27,21 @@ export default class Base extends React.Component {
 		const { selectKeys, children, menuComponents, breadcrumbs } = this.props;
 
 		return (
-			<Layout style={{ minHeight: '100vh' }}>
-				<Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+			<Layout className={cx('layout')}>
+				<Sider className={'sider'} collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
 					<div className={cx('logo')} />
 					<Menu theme="dark" defaultSelectedKeys={[selectKeys]} mode="inline">
 						{menuComponents}
 					</Menu>
 				</Sider>
-				<Layout className={cx('site-layout')}>
-					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
-						<Breadcrumb style={{ margin: '16px 0' }}>{breadcrumbs}</Breadcrumb>
-						<div className={cx('site-layout-background')} id="" style={{ padding: 24 }}>
-							{children}
-							<div id="micro_app" />
-						</div>
+				<div className={cx('main')}>
+					<div className={cx('info-bar')}></div>
+					<Breadcrumb className={cx('subInfo-bar')}>{breadcrumbs}</Breadcrumb>
+					<Content className={cx('content')}>
+						{children}
+						<div id="micro_app" />
 					</Content>
-				</Layout>
+				</div>
 			</Layout>
 		);
 	}

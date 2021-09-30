@@ -3,6 +3,23 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import renderRoutes from './renderRoutes';
 import routes from './routes';
 
-export default function RootRouter() {
-	return <Router basename="/">{renderRoutes(routes)}</Router>;
+// export default function RootRouter() {
+// 	return <Router basename="/">{renderRoutes(routes)}</Router>;
+// }
+
+export default class RootRouter extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	componentDidMount() {
+		setTimeout(() => {
+			const globalCover = document.getElementById('globalCover');
+			globalCover.style.display = 'none';
+		}, 1000);
+	}
+
+	render() {
+		return <Router basename="/">{renderRoutes(routes)}</Router>;
+	}
 }

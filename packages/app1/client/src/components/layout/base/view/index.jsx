@@ -1,10 +1,8 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { HddOutlined } from '@ant-design/icons';
 import { withRouter } from 'react-router-dom';
 import withBase from '../dependencies/WithBase';
 const { Content, Sider } = Layout;
-const { SubMenu } = Menu;
 
 import classNames from 'classnames/bind';
 import styles from '../styles/index.scss';
@@ -30,32 +28,23 @@ export default class Base extends React.Component {
 		const { selectKeys, children, menuComponents, breadcrumbs } = this.props;
 
 		return __POWERED_BY_QIANKUN__ ? (
-			<Layout style={{ minHeight: '100vh' }}>
-				<Layout className={cx('site-layout')}>
-					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
-						<Breadcrumb style={{ margin: '16px 0' }}>{breadcrumbs}</Breadcrumb>
-						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
-							{children}
-						</div>
-					</Content>
-				</Layout>
-			</Layout>
+			<Layout className={cx('microAppLayout')}>{children}</Layout>
 		) : (
-			<Layout style={{ minHeight: '100vh' }}>
-				<Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+			<Layout className={cx('layout')}>
+				<Sider className={'sider'} collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
 					<div className={cx('logo')} />
 					<Menu theme="dark" defaultSelectedKeys={[selectKeys]} mode="inline">
 						{menuComponents}
 					</Menu>
 				</Sider>
-				<Layout className={cx('site-layout')}>
-					<Content className={cx('main-content')} style={{ margin: '0 16px' }}>
-						<Breadcrumb style={{ margin: '16px 0' }}>{breadcrumbs}</Breadcrumb>
-						<div className={cx('site-layout-background')} style={{ padding: 24 }}>
-							{children}
-						</div>
+				<div className={cx('main')}>
+					<div className={cx('info-bar')}></div>
+					<Breadcrumb className={cx('subInfo-bar')}>{breadcrumbs}</Breadcrumb>
+					<Content className={cx('content')}>
+						{children}
+						<div id="micro_app" />
 					</Content>
-				</Layout>
+				</div>
 			</Layout>
 		);
 	}

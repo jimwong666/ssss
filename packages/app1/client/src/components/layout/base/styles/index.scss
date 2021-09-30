@@ -1,28 +1,38 @@
 html {
 	overflow: hidden;
 	.logo {
-		height: 32px;
+		height: 40px;
 		margin: 16px;
-		background: url('../images/logo.png') center;
+		background: url('../images/logo_1.png');
 	}
-
-	.site-layout {
-		.main-content{
-			position: relative;
+	.microAppLayout {
+		background: #fff;
+	}
+	.layout{
+		height: 100vh;
+		.main {
+			flex: 1 1 auto;
 			display: flex;
 			flex-direction: column;
-			.site-layout-background{
+			.info-bar {
+				flex: 0 0 80px;
 				background: #fff;
-				height: 0;
+			}
+			.subInfo-bar {
+				margin: 6px 16px;
+			}
+			.content{
 				flex: 1 1 auto;
-				min-width: 800px;
+				margin-left: 16px;
+				padding: 20px;
+				background: #fff;
 				overflow-y: auto;
 				&::-webkit-scrollbar-thumb {
 					background-color: transparent;
 					border-radius: 5px;
 				}
 				&:hover::-webkit-scrollbar-thumb {
-					background-color: #ccc;
+					background-color: #aaa;
 				}
 				&::-webkit-scrollbar {
 					width: 9px;
@@ -34,5 +44,4 @@ html {
 			}
 		}
 	}
-
 }

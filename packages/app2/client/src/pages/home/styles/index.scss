@@ -1,16 +1,16 @@
 .home-content {
 	display: flex;
 	flex-direction: row;
-	&:before {
-		content: "";
-		position: absolute;
-		top: 54px;
-		left: 0;
-		right: 0;
-		height: 24px;
-		background-image: linear-gradient(#fff, transparent);
-		z-index: 99;
-	}
+	//&:before {
+	//	content: "";
+	//	position: absolute;
+	//	top: 54px;
+	//	left: 0;
+	//	right: 0;
+	//	height: 24px;
+	//	background-image: linear-gradient(#fff, transparent);
+	//	z-index: 99;
+	//}
 }
 .info-list {
 	flex: 1 1 auto;
