@@ -16,7 +16,7 @@ const routes = [
 		key: '3',
 		breadcrumb: ['基础资料', '物品列表'],
 		componentTemplate: BaseComponent,
-		child: React.lazy(() => import('@pages/about')),
+		child: React.lazy(() => import('@pages/home')),
 	},
 	{
 		path: '/supplier/add',
@@ -32,7 +32,7 @@ const routes = [
 		key: '5',
 		breadcrumb: ['基础资料', '供应商列表'],
 		componentTemplate: BaseComponent,
-		child: React.lazy(() => import('@pages/about')),
+		child: React.lazy(() => import('@pages/home')),
 	},
 	{
 		path: '*',

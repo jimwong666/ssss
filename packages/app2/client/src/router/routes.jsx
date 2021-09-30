@@ -16,7 +16,7 @@ const routes = [
 		key: '7',
 		breadcrumb: ['项目管理', '项目列表'],
 		componentTemplate: BaseComponent,
-		child: React.lazy(() => import('@pages/about')),
+		child: React.lazy(() => import('@pages/home')),
 	},
 	{
 		path: '*',
