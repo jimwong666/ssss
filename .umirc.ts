@@ -1,13 +1,13 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-	title: 'Site Name',
+	title: 'SSSS-project',
 	mode: 'site',
 	outputPath: 'docs',
 	base: '/ssss',
 	publicPath: '/ssss/',
 	resolve: {
-		includes: ['documents', 'packages/pkg/src'],
+		includes: ['docs-sources', 'packages/pkg/src'],
 	},
 	// more config: https://d.umijs.org/config
 });
