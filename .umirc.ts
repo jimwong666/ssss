@@ -4,6 +4,7 @@ export default defineConfig({
 	title: 'Site Name',
 	mode: 'site',
 	outputPath: 'docs',
+	base: '/ssss',
 	resolve: {
 		includes: ['documents', 'packages/pkg/src'],
 	},
