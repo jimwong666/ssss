@@ -1,6 +1,6 @@
 {
-  "private": true,
   "name": "ssss",
+  "private": true,
   "scripts": {
     "all:fe:dev": "lerna run fe:dev",
     "all:fe:build": "lerna run fe:build",
@@ -8,20 +8,31 @@
     "all:server": "lerna run server",
     "app1:fe:dev": "lerna run fe:dev --scope=app1",
     "app1:fe:build": "lerna run fe:build --scope=app1",
-		"app1:server:dev": "lerna run server:dev --scope=app1",
-		"app1:server": "lerna run server --scope=app1",
-		"main:fe:dev": "lerna run fe:dev --scope=main",
-		"main:fe:build": "lerna run fe:build --scope=main",
-		"main:server:dev": "lerna run server:dev --scope=main",
-		"main:server": "lerna run server --scope=main",
-		"prettier": "prettier --write \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
-		"eslint": "eslint --fix \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
-		"dumi:dev": "dumi dev",
-		"dumi:build": "dumi build"
-	},
+    "app1:server:dev": "lerna run server:dev --scope=app1",
+    "app1:server": "lerna run server --scope=app1",
+    "main:fe:dev": "lerna run fe:dev --scope=main",
+    "main:fe:build": "lerna run fe:build --scope=main",
+    "main:server:dev": "lerna run server:dev --scope=main",
+    "main:server": "lerna run server --scope=main",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
+    "eslint": "eslint --fix \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
+    "dumi:dev": "dumi dev",
+    "dumi:build": "dumi build",
+    "commit": "git-cz"
+  },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -34,8 +45,12 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
     "autoprefixer": "^10.3.1",
     "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.4",
+    "cz-lerna-changelog": "^2.0.3",
     "dumi": "^1.0.13",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -48,6 +63,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-react-redux": "^3.3.2",
+    "husky": "^7.0.2",
     "lerna": "^4.0.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",

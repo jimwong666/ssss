@@ -1,5 +1,10 @@
 {
 	"private": true,
-	"packages": ["packages/*", "packages/main/*", "packages/app1/*", "packages/app2/*"],
+	"packages": ["packages/*"],
+	"command": {
+		"bootstrap": {
+			"hoist": true
+		}
+	},
 	"version": "independent"
 }
