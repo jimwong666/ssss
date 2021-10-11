@@ -1,9 +1,12 @@
 {
-	"private": true,
 	"packages": ["packages/*"],
 	"command": {
 		"bootstrap": {
 			"hoist": true
+		},
+		"publish": {
+			"registry": "https://registry.npmjs.org/",
+			"ignoreChanges": ["ignored-file", "*.md"]
 		}
 	},
 	"version": "independent"

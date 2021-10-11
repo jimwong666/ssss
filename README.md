@@ -11,7 +11,7 @@ based on react, qiankun, lerna, dumi and more
 - ~~TODO: home page has some problem on styles~~(add global loading)
 - TODO: whether to specify the protocol(http/https)
 - TODO: 生产环境关闭子应用入口
-- TODO: 如何统一各个组件?
+- TODO: 如何统一各个组件？（增加一个可发布的依赖包，存放公共组件）
 
 # 注意点：
 
