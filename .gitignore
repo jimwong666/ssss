@@ -24,3 +24,8 @@
 # ide
 /.vscode
 /.idea
+
+# aeps-rc
+/packages/aeps-rc/dist/
+/packages/aeps-rc/es/
+/packages/aeps-rc/lib/
