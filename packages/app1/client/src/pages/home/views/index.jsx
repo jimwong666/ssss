@@ -36,7 +36,6 @@ export default class Index extends React.Component {
 	}
 
 	render() {
-		const { customTestFetch } = this.props;
 		return (
 			<div className={cx('home-content')}>
 				<div style={{ background: '#000', height: '1920px', width: '100%' }}>

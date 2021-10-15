@@ -1,8 +1,9 @@
 import React from 'react';
 import { Breadcrumb, Menu, message } from 'antd';
-const { SubMenu } = Menu;
-import menuData from './menuData';
 import { Link } from 'react-router-dom';
+import menuData from './menuData';
+
+const { SubMenu } = Menu;
 
 export default function withBase(WrappedComponent) {
 	return class WithBase extends React.Component {
@@ -16,8 +17,8 @@ export default function withBase(WrappedComponent) {
 		}
 
 		getMenu = (originData, targetComponents) => {
-			for (let index in originData) {
-				if (!!originData[index].path) {
+			for (const index in originData) {
+				if (originData[index].path) {
 					targetComponents.push(
 						<Menu.Item key={originData[index].menuKey} icon={originData[index].icon}>
 							<Link to={originData[index].path}>{originData[index].text}</Link>
@@ -37,13 +38,17 @@ export default function withBase(WrappedComponent) {
 						</SubMenu>,
 					);
 				} else {
-					message.error('菜单出错啦！').then((r) => null);
+					message.error('菜单出错啦！').then(() => null);
 				}
 			}
 		};
 
 		getBreadcrumb = (arr) => {
-			return arr.map((item, index) => <Breadcrumb.Item key={index}>{item}</Breadcrumb.Item>);
+			return arr.map((item, index) => (
+				<Breadcrumb.Item index={index} key={item}>
+					{item}
+				</Breadcrumb.Item>
+			));
 		};
 
 		render() {

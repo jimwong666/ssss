@@ -8,10 +8,6 @@ import routes from './routes';
 // }
 
 export default class RootRouter extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentDidMount() {
 		setTimeout(() => {
 			const globalCover = document.getElementById('globalCover');

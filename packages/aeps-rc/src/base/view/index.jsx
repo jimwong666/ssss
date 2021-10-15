@@ -1,11 +1,12 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { withRouter } from 'react-router-dom';
-import withBase from '../dependencies/WithBase';
-const { Content, Sider } = Layout;
-
 import classNames from 'classnames/bind';
+import withBase from '../dependencies/WithBase';
+
 import styles from '../styles/index.less';
+
+const { Content, Sider } = Layout;
 const cx = classNames.bind(styles);
 
 @withRouter
@@ -31,7 +32,7 @@ export default class Base extends React.Component {
 			<Layout className={cx('microAppLayout')}>{children}</Layout>
 		) : (
 			<Layout className={cx('layout')}>
-				<Sider className={'sider'} collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+				<Sider className="sider" collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
 					<div className={cx('logo')} />
 					<Menu theme="dark" defaultSelectedKeys={[selectKeys]} mode="inline">
 						{menuComponents}

@@ -18,6 +18,7 @@
     "eslint": "eslint --fix \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
     "dumi:dev": "dumi dev",
     "dumi:build": "dumi build",
+    "build:aeps-rc": "lerna run build --scope=aeps-rc",
     "commit": "git-cz"
   },
   "main": "dist/index.js",
@@ -37,7 +38,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "*.{js,jsx,tsx,css,sass,less,md,json}": [
       "prettier --write"
     ],
     "*.ts?(x)": [

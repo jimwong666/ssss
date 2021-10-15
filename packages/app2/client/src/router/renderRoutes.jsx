@@ -11,11 +11,11 @@ const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
 					exact={route.exact}
 					strict={route.strict}
 					render={(props) => {
-						let searchObj = {};
-						if (!!props.location.search) {
-							for (let val of props.location.search.substr(1).split('&')) {
-								let valArr = val.split('=');
-								searchObj[valArr[0]] = valArr[1];
+						const searchObj = {};
+						if (props.location.search) {
+							for (const val of props.location.search.substr(1).split('&')) {
+								const valArr = val.split('=');
+								[, searchObj[valArr[0]]] = valArr;
 							}
 						}
 						props.location.searchObj = searchObj;
