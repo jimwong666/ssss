@@ -1,11 +1,10 @@
 @charset "UTF-8";
-//-----------------------------------------------------	
+//-----------------------------------------------------
 //@name    variable
 //@desc    define base variable
 //@author  guozd
 //@date    2015-07-21
-//-----------------------------------------------------	
-
+//-----------------------------------------------------
 
 // color
 $red:            #cc220b !default;
@@ -24,18 +23,16 @@ $inpBorderColor: #d9d9d9 #a7ceec !default;     //页面输入框边框正常颜�
 $primaryColor:   #40be7f;
 $linkHoverColor: #40be7f;
 
-
 // font family
 $baseFontSize:   16px !default;
 $baseLineHeight: 1.5 !default;
-$fontYaHei:      "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif !default;
-$fontSimsun:     "\5B8B\4F53", Arial, sans-serif !default;
-$fontArial:      Arial, sans-serif !default;
-
+$fontYaHei:      "\5FAE\8F6F\96C5\9ED1", arial, sans-serif !default;
+$fontSimsun:     "\5B8B\4F53", arial, sans-serif !default;
+$fontArial:      arial, sans-serif !default;
 
 // font size
-$f12: $baseFontSize * .75;
-$f14: $baseFontSize * .875;
+$f12: $baseFontSize * 0.75;
+$f14: $baseFontSize * 0.875;
 $f16: $baseFontSize * 1;
 $f18: $baseFontSize * 1.125;
 $f20: $baseFontSize * 1.25;
