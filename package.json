@@ -19,6 +19,7 @@
     "dumi:dev": "dumi dev",
     "dumi:build": "dumi build",
     "build:aeps-rc": "lerna run build --scope=aeps-rc",
+    "publish": "lerna publish",
     "commit": "git-cz"
   },
   "main": "dist/index.js",
