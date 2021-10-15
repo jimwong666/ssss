@@ -74,6 +74,7 @@
 	},
 	"dependencies": {
 		"@babel/runtime-corejs3": "^7.14.7",
+		"aeps-rc": "^0.1.2",
 		"antd": "^4.4.2",
 		"axios": "^0.20.0",
 		"cheerio": "^1.0.0-rc.5",

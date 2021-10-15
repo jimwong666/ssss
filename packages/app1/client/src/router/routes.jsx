@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseComponent from '@components/layout/base';
+import { Base } from 'aeps-rc';
 
 const routes = [
 	{
@@ -7,7 +7,7 @@ const routes = [
 		exact: true,
 		key: '2',
 		breadcrumb: ['基础资料', '新增物品'],
-		componentTemplate: BaseComponent,
+		componentTemplate: Base,
 		child: React.lazy(() => import('@pages/home')),
 	},
 	{
@@ -15,7 +15,7 @@ const routes = [
 		exact: true,
 		key: '3',
 		breadcrumb: ['基础资料', '物品列表'],
-		componentTemplate: BaseComponent,
+		componentTemplate: Base,
 		child: React.lazy(() => import('@pages/home')),
 	},
 	{
@@ -23,7 +23,7 @@ const routes = [
 		exact: true,
 		key: '4',
 		breadcrumb: ['基础资料', '新增供应商'],
-		componentTemplate: BaseComponent,
+		componentTemplate: Base,
 		child: React.lazy(() => import('@pages/home')),
 	},
 	{
@@ -31,14 +31,14 @@ const routes = [
 		exact: true,
 		key: '5',
 		breadcrumb: ['基础资料', '供应商列表'],
-		componentTemplate: BaseComponent,
+		componentTemplate: Base,
 		child: React.lazy(() => import('@pages/home')),
 	},
 	{
 		path: '*',
 		key: '',
 		breadcrumb: [],
-		componentTemplate: BaseComponent,
+		componentTemplate: Base,
 		child: React.lazy(() => import('@pages/404')),
 	},
 ];

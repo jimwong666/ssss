@@ -1,11 +1,11 @@
 # `aeps-rc`
 
-> TODO: description
+> 业务组件库
 
 ## Usage
 
-```
-const aepsRc = require('aeps-rc');
+```js
+import { Base } from 'aeps-rc';
 
-// TODO: DEMONSTRATE API
+// ...
 ```

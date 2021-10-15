@@ -1,5 +1,3 @@
-import path from 'path';
-
 export default {
 	disableTypeCheck: true,
 	cjs: {
@@ -10,16 +8,16 @@ export default {
 		type: 'babel',
 		importLibToEs: true,
 	},
-	umd: {
-		name: 'aeps-rc',
-		minFile: true,
-		sourcemap: true,
-		globals: {
-			react: 'React',
-			antd: 'antd',
-			'react-router-dom': 'react-router-dom',
-		},
-	},
+	// umd: {
+	// 	name: 'aeps-rc',
+	// 	minFile: true,
+	// 	sourcemap: true,
+	// 	globals: {
+	// 		react: 'React',
+	// 		antd: 'antd',
+	// 		'react-router-dom': 'react-router-dom',
+	// 	},
+	// },
 	extraBabelPlugins: [
 		[
 			'babel-plugin-import',
@@ -30,4 +28,7 @@ export default {
 			'antd',
 		],
 	],
+	extractCSS: true,
+	// lessInRollupMode: true,
+	// lessInBabelMode: true,
 };

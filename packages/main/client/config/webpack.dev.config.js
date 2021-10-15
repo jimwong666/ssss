@@ -71,7 +71,7 @@ module.exports = merge(webpackBaseConfig, {
 			},
 			{
 				test: /\.(less|css)$/,
-				include: /node_modules/,
+				include: [clientPathResolve('../../aeps-rc'), /node_modules/],
 				use: [
 					{
 						loader: 'style-loader',
@@ -89,8 +89,11 @@ module.exports = merge(webpackBaseConfig, {
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg)$/,
-				include: [clientPathResolve('src')],
-				exclude: /node_modules/,
+				include: [
+					clientPathResolve('src'),
+					clientPathResolve('../node_modules/aeps-rc'),
+					clientPathResolve('../../aeps-rc'),
+				],
 				use: {
 					loader: 'file-loader',
 					options: {

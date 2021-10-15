@@ -13,3 +13,7 @@ package.json
 **/dist/**/*
 **/log/**/*
 **/public/style/**/*
+
+# aeps-rc
+**/aeps-rc/lib/**/*
+**/aeps-rc/es/**/*

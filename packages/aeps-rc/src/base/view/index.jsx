@@ -5,7 +5,7 @@ import withBase from '../dependencies/WithBase';
 const { Content, Sider } = Layout;
 
 import classNames from 'classnames/bind';
-import styles from '../styles/index.scss';
+import styles from '../styles/index.less';
 const cx = classNames.bind(styles);
 
 @withRouter
@@ -38,7 +38,7 @@ export default class Base extends React.Component {
 					</Menu>
 				</Sider>
 				<div className={cx('main')}>
-					<div className={cx('info-bar')}></div>
+					<div className={cx('info-bar')}>这里是aeps-rc!</div>
 					<Breadcrumb className={cx('subInfo-bar')}>{breadcrumbs}</Breadcrumb>
 					<Content className={cx('content')}>
 						{children}

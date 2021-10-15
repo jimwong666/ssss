@@ -7,7 +7,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				include: [clientPathResolve('src')],
+				include: [clientPathResolve('src'), clientPathResolve('../../aeps-rc')],
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader', // 主要用于编译es6语法和react的jsx语法
