@@ -2,6 +2,7 @@
   "name": "ssss",
   "private": true,
   "scripts": {
+		"install": "lerna bootstrap",
     "all:fe:dev": "lerna run fe:dev",
     "all:fe:build": "lerna run fe:build",
     "all:server:dev": "lerna run server:dev",

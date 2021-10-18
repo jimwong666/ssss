@@ -8,7 +8,7 @@ export default defineConfig({
 	base: '/ssss',
 	publicPath: '/ssss/',
 	resolve: {
-		includes: ['docs-sources', 'packages/*/src'],
+		includes: ['docs-sources', 'packages'],
 	},
 	alias: {
 		'@aeps-rc': path.resolve(__dirname, 'packages/aeps-rc/src'),
