@@ -18,8 +18,8 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,css,sass,less,md,json}\"",
     "eslint": "eslint --fix \"**/*.{js,jsx,tsx,md,json}\"",
     "stylelint": "npx stylelint --fix \"**/*.{css,scss,less}\"",
-    "dumi:dev": "dumi dev",
-    "dumi:build": "dumi build",
+    "dumi:dev": "node generateDocs && dumi dev",
+    "dumi:build": "node generateDocs && dumi build",
     "build:aeps-rc": "lerna run build --scope=aeps-rc",
     "publish": "lerna publish",
     "commit": "git-cz"

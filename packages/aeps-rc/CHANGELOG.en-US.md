@@ -1,8 +1,5 @@
 ---
-order: 6
 title: Change Log
-toc: false
-timeline: true
 ---
 
 `antd` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
