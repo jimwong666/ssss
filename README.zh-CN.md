@@ -1,6 +1,6 @@
-# Getting Started
+# SSSS
 
-based on react, qiankun, lerna, dumi and more
+## 待完成
 
 - ~~TODO: immutable => immutability-helper~~
 - ~~TODO: home page style fix~~
@@ -18,6 +18,8 @@ based on react, qiankun, lerna, dumi and more
 - 子应用需要部署在主应用的二级域名
 
 ## 介绍
+
+基于 react, qiankun, lerna, dumi 等更多
 
 ### 技术概括
 

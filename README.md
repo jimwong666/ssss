@@ -1,6 +1,6 @@
-# Getting Started
+# SSSS
 
-based on react, qiankun, lerna, dumi and more
+## TODO:
 
 - ~~TODO: immutable => immutability-helper~~
 - ~~TODO: home page style fix~~
@@ -13,11 +13,13 @@ based on react, qiankun, lerna, dumi and more
 - TODO: 生产环境关闭子应用入口
 - ~~TODO: 如何统一各个组件？（增加一个可发布的依赖包，存放公共组件）~~（20211014 resolved✌✌✌ 坑比较多）
 
-## 注意点：
+## Attention:
 
 - 子应用需要部署在主应用的二级域名
 
-## 介绍
+## introduction:
+
+based on react, qiankun, lerna, dumi and more
 
 ### 技术概括
 
@@ -26,7 +28,7 @@ based on react, qiankun, lerna, dumi and more
 3. 在上一条基础组件之上，由于此项目是一个基于 qiankun 的微前端项目，所以又通过 lerna 开发了一个业务组件库，供各个子应用共享使用，达到效率和统一（不然各个子项目组件都重写一边太反人类了）
 4. 文档系统基于 dumi
 
-### 快速开始
+### Getting Started
 
 #### 安装依赖
 
