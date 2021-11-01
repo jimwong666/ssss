@@ -1,42 +1,42 @@
-# SSSS
+## 介绍
+
+基于 react、node、qiankun、express、antd、webpack、lerna 等
+
+1. 项目结构基于 Lerna
+2. 本项目 UI 组化库使用了 [Bubble2](https://github.com/Bubble2) 开发的基于 antd 的基础组件库，并且由于此项目是一个基于 qiankun 的微前端项目，所以通过 lerna 开发了一个业务组件库，供各个子应用共享使用，达到效率和统一
+3. 文档系统基于 dumi
+4. ...
 
 ## 待完成
 
 - ~~TODO: immutable => immutability-helper~~
-- ~~TODO: home page style fix~~
-- TODO: creat an application launcher based on electron(thinking...)
-- TODO: micro app don't load when main app trigger hot reload([https://github.com/umijs/qiankun/issues/830](https://github.com/umijs/qiankun/issues/830), no solution... )
-- ~~TODO: react-loadable has problem~~(switch to suspense and lazy)
-- ~~TODO: main app route menu doesn't match to micro app route~~(use exact mode in react-route)
-- ~~TODO: home page has some problem on styles~~(add global loading)
-- TODO: whether to specify the protocol(http/https)
-- TODO: 生产环境关闭子应用入口
-- ~~TODO: 如何统一各个组件？（增加一个可发布的依赖包，存放公共组件）~~（20211014 resolved✌✌✌ 坑比较多）
+- ~~TODO: 首页样式问题~~
+- TODO: 用 electron 写一个项目启动应用(思考中...)
+- TODO: 子应用不支持 webpack 热重载([https://github.com/umijs/qiankun/issues/830](https://github.com/umijs/qiankun/issues/830), issues 表示暂时没有官方方案...目前想使用子应用的热重载可只能再子应用里面开发)
+- ~~TODO: react-loadable 配合 qiankun 有问题~~(用 suspense and lazy 的懒加载方案)
+- ~~TODO: 主应用路由菜单点击不能匹配到子应用路由~~(routes.jsx 文件里面启动路由严格模式 => exact:true)
+- ~~TODO: 主页样式有问题~~(样式解析问题~无解，增加全局 loading)
+- TODO: 配置文件里面是否要指定具体协议？(http/https)
+- TODO: 生产环境是否要关闭子应用入口
+- ~~TODO: 如何统一各个组件？（增加一个可发布的依赖包，存放公共组件）~~（resolved✌✌✌ 爬了很多坑）
 
 ## 注意点：
 
 - 子应用需要部署在主应用的二级域名
 
-## 介绍
+## 快速开始
 
-基于 react, qiankun, lerna, dumi 等更多
+### 准备工作
 
-### 技术概括
+根据项目配置文件设置 host 和 nginx，也遇到问题请咨询我~
 
-1. 首先是底层的依赖：node、express、npm、webpack、ejs、gulp、react、antd、lerna、qiankun、pm2 等
-2. 本项目也将会使用了 [Bubble2](https://github.com/Bubble2) 开发的基于 antd 的基础组件库
-3. 在上一条基础组件之上，由于此项目是一个基于 qiankun 的微前端项目，所以又通过 lerna 开发了一个业务组件库，供各个子应用共享使用，达到效率和统一（不然各个子项目组件都重写一边太反人类了）
-4. 文档系统基于 dumi
-
-### 快速开始
-
-#### 安装依赖
+### 安装依赖
 
 ```
 $ npm run install
 ```
 
-#### 启动应用
+### 启动应用
 
 ```
 $ npm run all:fe:dev // 启动所有前端应用（开发环境）
@@ -45,7 +45,7 @@ $ npm run all:server // 启动所有node应用（开发环境）
 $ npm run all:server:dev // 启动所有node应用（生产环境）
 ```
 
-#### 其他命令
+### 其他命令
 
 ````
 $ npm run prettier // 格式化所以代码
@@ -58,8 +58,8 @@ $ npm run publish // 发布组件到npm（网络大多数时候是不同的，�
 $ npm run commit // commit代码
 ````
 
-#### 代码提交步骤
+### 代码提交步骤
 
 1. 先 `git add .` 将所有文件添加到暂存区
-2. 再 `npm run commit` 根据命令行提示一步步完成需要确认的信息
+2. 再 `npm run commit` 根据命令行提示一步步完成需要确认的信息（这步很重要）
 3. 走后 `git push` 推送到 git

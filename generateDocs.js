@@ -5,6 +5,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const { Transform } = require('stream');
 
 // 注意：此处会删除 docs-sources 目录下的文件夹！！！！！以达到清理的目的
 const delDr = function (dir) {
@@ -60,6 +61,7 @@ const getDir = function () {
 };
 
 const copyFile = function (fromFile, toFile) {
+	console.log(fromFile);
 	for (let index in fromFile) {
 		const fromFileDir = fromFile[index],
 			toFileDir = toFile[index];
@@ -74,13 +76,56 @@ const copyFile = function (fromFile, toFile) {
 			highWaterMark: 64 * 1024 * 1024,
 			flags: 'r',
 		});
+
+		// 创建自定义转换流的类
+		class MyTransform extends Transform {
+			_transform(chunk, encoding, callback) {
+				// 根目录的readme.md
+				if (fromFileDir.indexOf('\\README.md') > 0) {
+					this.push(
+						`---
+title: A doc about this SSSS
+hero:
+  title: SSSS
+  desc: 📖 A doc about this SSSS
+  actions:
+    - text: Getting Started
+      link: /getting-started
+footer: 😊😁😎😉😜🤞✌
+---
+` + chunk,
+					);
+				}
+				// 根目录的readme.zh-CN.md
+				else if (fromFileDir.indexOf('\\README.zh-CN.md') > 0) {
+					this.push(
+						`---
+title: 关于SSSS的项目文档
+hero:
+  title: SSSS
+  desc: 📖 关于SSSS的项目文档
+  actions:
+    - text: 快速开始
+      link: /getting-started
+footer: 😊😁😎😉😜🤞✌
+---
+` + chunk,
+					);
+				} else {
+					this.push(chunk);
+				}
+
+				callback();
+			}
+		}
+
 		const ws = fs.createWriteStream(toFileDir, {
 			encoding: 'utf-8',
 			flags: 'a',
 			highWaterMark: 16 * 1024 * 1024,
 			autoClose: true,
 		});
-		rs.pipe(ws);
+		rs.pipe(new MyTransform()).pipe(ws);
 	}
 };
 
