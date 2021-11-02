@@ -61,7 +61,6 @@ const getDir = function () {
 };
 
 const copyFile = function (fromFile, toFile) {
-	console.log(fromFile);
 	for (let index in fromFile) {
 		const fromFileDir = fromFile[index],
 			toFileDir = toFile[index];
@@ -88,9 +87,6 @@ title: A doc about this SSSS
 hero:
   title: SSSS
   desc: 📖 A doc about this SSSS
-  actions:
-    - text: Getting Started
-      link: /getting-started
 footer: 😊😁😎😉😜🤞✌
 ---
 ` + chunk,
@@ -104,9 +100,6 @@ title: 关于SSSS的项目文档
 hero:
   title: SSSS
   desc: 📖 关于SSSS的项目文档
-  actions:
-    - text: 快速开始
-      link: /getting-started
 footer: 😊😁😎😉😜🤞✌
 ---
 ` + chunk,
