@@ -1,7 +1,6 @@
 import React from 'react';
 import { Breadcrumb, Menu, message } from 'antd';
 import { Link } from 'react-router-dom';
-import menuData from './menuData';
 
 const { SubMenu } = Menu;
 
@@ -13,6 +12,7 @@ export default function withBase(WrappedComponent) {
 		}
 
 		componentDidMount() {
+			const { menuData } = this.props;
 			this.getMenu(menuData, this.menuComponents);
 		}
 

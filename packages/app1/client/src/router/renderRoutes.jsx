@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import menuData from '../menu';
 
 const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
 	routes ? (
@@ -27,6 +28,7 @@ const renderRoutes = (routes, extraProps = {}, switchProps = {}) =>
 								{...props}
 								{...extraProps}
 								route={route}
+								menuData={menuData}
 							>
 								<Suspense fallback={<div>loadinggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</div>}>
 									{route.child && <route.child />}
