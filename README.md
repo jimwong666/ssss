@@ -47,16 +47,16 @@ $ npm run all:server:dev // start all app in be (prod)
 
 ### other command
 
-```
+````
 $ npm run prettier // formatting all code
 $ npm run eslint // code syntax verification and other (js,jsx,tsx,md,json)
 $ npm run stylelint // styles verification (css,scss,less)
 $ npm run dumi:dev // preview document (dev)
 $ npm run dumi:build // build document (prod)
 $ npm run build:aeps-rc // build aeps-rc lib
-$ npm run publish // publish to npm
+$ npm run publish // publish to npm (if fail you can run ```npm publish --access public```)
 $ npm run commit // commit code
-```
+````
 
 ### code commit steps
 

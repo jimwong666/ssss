@@ -5,7 +5,7 @@
 ## Usage
 
 ```js
-import { Base } from 'aeps-rc';
+import { Base } from 'aeps-rc/layout';
 
 // ...
 ```
