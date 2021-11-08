@@ -1,3 +1,5 @@
+简体中文 | [English](./README.md)
+
 ## 介绍
 
 基于 react、node、qiankun、express、antd、webpack、lerna 等

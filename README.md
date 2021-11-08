@@ -1,3 +1,5 @@
+English | [简体中文](./README.zh-CN.md)
+
 ## Introduction:
 
 based on react、node、qiankun、express、antd、webpack、lerna and more

@@ -49,7 +49,6 @@ const getDir = function () {
 				}
 			}
 		});
-		// })
 	};
 	recursion('./packages');
 	fromFilePath.push(path.resolve(__dirname, './README.md'), path.resolve(__dirname, './README.zh-CN.md'));
@@ -81,6 +80,7 @@ const copyFile = function (fromFile, toFile) {
 			_transform(chunk, encoding, callback) {
 				// 根目录的readme.md
 				if (fromFileDir.indexOf('\\README.md') > 0) {
+					chunk = Buffer.from(chunk.toString().replace('English | [简体中文](./README.zh-CN.md)', ''));
 					this.push(
 						`---
 title: A doc about this SSSS
@@ -94,6 +94,7 @@ footer: 😊😁😎😉😜🤞✌
 				}
 				// 根目录的readme.zh-CN.md
 				else if (fromFileDir.indexOf('\\README.zh-CN.md') > 0) {
+					chunk = Buffer.from(chunk.toString().replace('简体中文 | [English](./README.md)', ''));
 					this.push(
 						`---
 title: 关于SSSS的项目文档
