@@ -35,7 +35,7 @@ export default class Work extends React.Component {
 		return (
 			<>
 				<ul>
-					{preData?.data?.map((item) => {
+					{preData?.data?.data?.map((item) => {
 						return (
 							<li key={item.id}>
 								<span>{item.name}</span>
@@ -45,7 +45,7 @@ export default class Work extends React.Component {
 					})}
 				</ul>
 				<ul>
-					{preData2?.data?.map((item) => {
+					{preData2?.data?.data?.map((item) => {
 						return (
 							<li key={item.id}>
 								<span>{item.name}</span>
