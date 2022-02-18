@@ -21,6 +21,7 @@ based on react、node、qiankun、express、antd、webpack、lerna and more
 - TODO: whether to specify the protocol(http/https)
 - TODO: Whether the production environment closes the child-application entrance
 - ~~TODO: How to unify the components？（publish a lib to npm）~~（resolved✌✌✌ but a bit hard）
+- 主应用 router 去除诸如 app1/good/add 这样的 path，改为 app1/\* 这种形式，并且去掉 精确匹配模式。全局删除 selectKeys 字段，弃用，改为 this.props.location?.pathname（解决子应用内跳转子应用本身失败的问题）
 
 ## Attention:
 
